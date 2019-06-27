@@ -14,5 +14,7 @@
         {
 
         }
+
+        public System.Data.Entity.DbSet<Kapta.Common.Models.Exercise> Exercises { get; set; }
     }
 }
