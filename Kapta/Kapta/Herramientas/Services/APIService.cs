@@ -1,6 +1,7 @@
 ﻿namespace Kapta.Herramientas.Services
 {
     using Kapta.Common.Models;
+    using Kapta.Herramientas.Helpers;
     using Newtonsoft.Json;
     using Plugin.Connectivity;
     using System;
@@ -20,7 +21,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Please turn on your internet settings",
+                    Message = Languages.TurnOnInternet,
                 };
             }
 
@@ -31,7 +32,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "No internet connection",
+                    Message = Languages.NoInternet,
                 };
             }
 

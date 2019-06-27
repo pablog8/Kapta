@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Kapta.Common.Models;
+using Kapta.Herramientas.Helpers;
 using Kapta.Herramientas.Services;
 using System;
 using System.Collections.Generic;
@@ -42,16 +43,19 @@ namespace Kapta.Ejercicios
             if (!connection.IsSuccess)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
                 return;
 
             }
             var url = Application.Current.Resources["UrlAPI"].ToString();
-            var response = await this.apiService.GetList<Exercise>(url, "/api", "/Exercises");
+            var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+            var controller = Application.Current.Resources["UrlExercisesController"].ToString();
+
+            var response = await this.apiService.GetList<Exercise>(url, prefix, controller);
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
 

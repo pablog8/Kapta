@@ -19,6 +19,8 @@ namespace Kapta.Common.Models
 
         public DateTime PublishOn { get; set; }
 
+        public string ImagePath { get; set; }
+
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }
         public override string ToString()
