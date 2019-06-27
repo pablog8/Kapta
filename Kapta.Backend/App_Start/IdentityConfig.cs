@@ -22,7 +22,7 @@ namespace Kapta.Backend
             return Task.FromResult(0);
         }
     }
-
+    
     public class SmsService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
