@@ -2,6 +2,7 @@
 {
     using Kapta.Common.Models;
     using Newtonsoft.Json;
+    using Plugin.Connectivity;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -10,6 +11,37 @@
 
     public class APIService
     {
+        //comprobar conexión a Internet
+        public async Task<Response> CheckConnection()
+        {
+            //si tiene el internet esta conectado
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Please turn on your internet settings",
+                };
+            }
+
+            //si esta conectaco comprueba que se pueda conectar a una dirección cualquiera, comprobamos el ping
+            var isReachable = await CrossConnectivity.Current.IsRemoteReachable("google.com");
+            if (!isReachable)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "No internet connection",
+                };
+            }
+
+            //cuando tenemos la conexion completada a internet
+            return new Response
+            {
+                IsSuccess = true,
+            };
+        }
+
         //si devuelve o no la lista del producto
         public async Task<Response> GetList<T>(string urlBase, string prefix, string controller)
         {

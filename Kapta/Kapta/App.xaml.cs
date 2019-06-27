@@ -14,7 +14,7 @@ namespace Kapta
 		{
 			InitializeComponent();
 
-			MainPage = new ExercisesPage();
+			MainPage = new NavigationPage(new ExercisesPage());
 		}
 
 		protected override void OnStart ()

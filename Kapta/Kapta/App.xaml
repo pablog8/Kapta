@@ -9,6 +9,13 @@
         <ResourceDictionary>
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator"/>
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">http://kaptaapi.azurewebsites.net/</x:String>
+            <x:String x:Key="UrlPrefix">/api</x:String>
+            <x:String x:Key="UrlProductsController">/Exercises</x:String>
+            <x:String x:Key="UrlUsersController">/Users</x:String>
+            <x:String x:Key="UrlCategoriesController">/Categories</x:String>
+            <x:String x:Key="UrlVideosController">/Videos</x:String>
         </ResourceDictionary>
 	</Application.Resources>
 </Application>

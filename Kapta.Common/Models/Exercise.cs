@@ -21,6 +21,9 @@ namespace Kapta.Common.Models
 
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }
-
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
