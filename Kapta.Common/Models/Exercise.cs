@@ -13,13 +13,21 @@ namespace Kapta.Common.Models
         public int ExerciseId { get; set; }
 
         [Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
+        [Display(Name = "Descripción")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        public DateTime PublishOn { get; set; }
 
+        [Display(Name = "Imagen")]
         public string ImagePath { get; set; }
+
+        //display para cómo quieres que lo vea el usuario en el backend
+        [Display(Name = "Publicación")]
+        [DataType(DataType.Date)]
+        public DateTime PublishOn { get; set; }
 
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }

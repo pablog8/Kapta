@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kapta.Backend.Models;
-using Kapta.Common.Models;
-
-namespace Kapta.Backend.Controllers
+﻿namespace Kapta.Backend.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Net;
+    using System.Web;
+    using System.Web.Mvc;
+    using Kapta.Backend.Models;
+    using Kapta.Common.Models;
+
     public class ExercisesController : Controller
     {
+        //la base de datos es db
         private LocalDataContext db = new LocalDataContext();
 
         // GET: Exercises
+        //devuelve una vista con la lista de todos los ejercicios
         public async Task<ActionResult> Index()
         {
-            return View(await db.Exercises.ToListAsync());
+            return View(await this.db.Exercises.OrderBy(p => p.Description).ToListAsync());
         }
 
         // GET: Exercises/Details/5
@@ -29,7 +31,7 @@ namespace Kapta.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = await db.Exercises.FindAsync(id);
+            var exercise = await this.db.Exercises.FindAsync(id);
             if (exercise == null)
             {
                 return HttpNotFound();
@@ -48,12 +50,12 @@ namespace Kapta.Backend.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ExerciseId,Name,Description,PublishOn")] Exercise exercise)
+        public async Task<ActionResult> Create(Exercise exercise)
         {
             if (ModelState.IsValid)
             {
-                db.Exercises.Add(exercise);
-                await db.SaveChangesAsync();
+                this.db.Exercises.Add(exercise);
+                await this.db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -67,7 +69,7 @@ namespace Kapta.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = await db.Exercises.FindAsync(id);
+            var exercise = await this.db.Exercises.FindAsync(id);
             if (exercise == null)
             {
                 return HttpNotFound();
@@ -80,12 +82,12 @@ namespace Kapta.Backend.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ExerciseId,Name,Description,PublishOn")] Exercise exercise)
+        public async Task<ActionResult> Edit(Exercise exercise)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(exercise).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                this.db.Entry(exercise).State = EntityState.Modified;
+                await this.db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(exercise);
@@ -98,7 +100,7 @@ namespace Kapta.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = await db.Exercises.FindAsync(id);
+            var exercise = await this.db.Exercises.FindAsync(id);
             if (exercise == null)
             {
                 return HttpNotFound();
@@ -111,9 +113,9 @@ namespace Kapta.Backend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Exercise exercise = await db.Exercises.FindAsync(id);
-            db.Exercises.Remove(exercise);
-            await db.SaveChangesAsync();
+            var exercise = await this.db.Exercises.FindAsync(id);
+            this.db.Exercises.Remove(exercise);
+            await this.db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
@@ -121,7 +123,7 @@ namespace Kapta.Backend.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                this.db.Dispose();
             }
             base.Dispose(disposing);
         }

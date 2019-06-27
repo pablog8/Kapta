@@ -8,6 +8,6 @@
 
     public class LocalDataContext : DataContext
     {
-        public System.Data.Entity.DbSet<Kapta.Common.Models.Exercise> Exercises { get; set; }
+        //public System.Data.Entity.DbSet<Kapta.Common.Models.Exercise> Exercises { get; set; }
     }
 }
