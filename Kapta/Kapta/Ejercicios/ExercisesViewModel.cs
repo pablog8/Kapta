@@ -13,8 +13,12 @@ namespace Kapta.Ejercicios
 {
     public class ExercisesViewModel : BaseViewModel
     {
+        #region Attributes
         private APIService apiService;
         private bool isRefreshing;
+        #endregion
+
+        #region Properties
         private ObservableCollection<Exercise> exercises;
 
         public ObservableCollection<Exercise> Exercises
@@ -27,14 +31,32 @@ namespace Kapta.Ejercicios
             get { return this.isRefreshing; }
             set { this.SetValue(ref this.isRefreshing, value); }
         }
+        #endregion
 
+        #region Constructors
         public ExercisesViewModel()
         {
+            instance = this;
             this.apiService = new APIService();
             this.LoadExercises();
         }
+        #endregion
 
+        #region Singleton
+        private static ExercisesViewModel instance;
+
+        public static ExercisesViewModel GetInstance()
+        {
+            if (instance == null)
+            {
+                return new ExercisesViewModel();
+            }
+            return instance;
+        }
+
+        #endregion
         //Cargar ejercicios
+        #region Methods
         private async void LoadExercises()
         {
             this.IsRefreshing = true;
@@ -63,6 +85,9 @@ namespace Kapta.Ejercicios
             this.Exercises = new ObservableCollection<Exercise>(list);
             this.IsRefreshing = false;
         }
+        #endregion
+
+        #region Commands
         public ICommand RefreshCommand
         {
             get
@@ -70,5 +95,7 @@ namespace Kapta.Ejercicios
                 return new RelayCommand(LoadExercises);
             }
         }
+        #endregion
+
     }
 }

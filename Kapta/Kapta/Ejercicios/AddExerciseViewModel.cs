@@ -6,6 +6,7 @@
     using Kapta.Herramientas.Services;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -313,16 +314,16 @@
                 return;
             }
 
-            //var newExercise = (Exercise)response.Result;
-            /*
+            var newExercise = (Exercise)response.Result;
+            
             //adicionamos el producto a la colección
-            var productsViewModel = ExercisesViewModel.GetInstance();
-            productsViewModel.MyProducts.Add(newExercise);
-            productsViewModel.RefreshList();
+            var viewModel = ExercisesViewModel.GetInstance();
+            viewModel.Exercises.Add(newExercise);
+            //viewModel.RefreshList();
             // la ordenamos
-            //viewModel.Products = viewModel.Products.OrderBy(p => p.Description).ToList();
+            //viewModel.Exercises = viewModel.Exercises.OrderBy(p => p.Description).ToList();
 
-            */
+            
             //si lo hizo de manera exitosa hacemos el back
             this.IsRunning = false;
             this.IsEnabled = true;
