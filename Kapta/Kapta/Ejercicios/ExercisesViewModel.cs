@@ -15,6 +15,8 @@ namespace Kapta.Ejercicios
     public class ExercisesViewModel : BaseViewModel
     {
         #region Attributes
+        private string filter;
+
         private APIService apiService;
         private bool isRefreshing;
 
@@ -22,6 +24,19 @@ namespace Kapta.Ejercicios
         #endregion
 
         #region Properties
+
+        public string Filter
+        {
+            get
+            {
+                return this.filter;
+            }
+            set
+            {
+                this.filter = value;
+                this.RefreshList();
+            }
+        }
 
         public List<Exercise> MyExercises { get; set; }
 
@@ -94,23 +109,57 @@ namespace Kapta.Ejercicios
 
         public void RefreshList()
         {
-            var myListExerciseViewModel = MyExercises.Select(p => new ExerciseItemViewModel
+            //si no hay filtro en la lupa
+            if (string.IsNullOrEmpty(this.Filter))
             {
-                Name = p.Name,
-                Description = p.Description,
-                ImageArray = p.ImageArray,
-                ImagePath = p.ImagePath,
-                ExerciseId = p.ExerciseId,
-                PublishOn = p.PublishOn,
+                var myListExerciseItemViewModel = this.MyExercises.Select(p => new ExerciseItemViewModel
+                {
+                    Name = p.Name,
+                    Description = p.Description,
+                    ImageArray = p.ImageArray,
+                    ImagePath = p.ImagePath,
+                    //IsAvailable = p.IsAvailable,
+                    //Price = p.Price,
+                    PublishOn = p.PublishOn,
+                    ExerciseId = p.ExerciseId,
+                    //Remarks = p.Remarks,
+                    //CategoryId = p.CategoryId,
+                    //UserId = p.UserId,
 
-            });
+                });
 
-            this.Exercises = new ObservableCollection<ExerciseItemViewModel>(
-                myListExerciseViewModel.OrderBy(p => p.Name));
+                this.Exercises = new ObservableCollection<ExerciseItemViewModel>(
+                    myListExerciseItemViewModel.OrderBy(p => p.Name));
+            }
+            else
+            {
+
+                var myListExerciseViewModel = MyExercises.Select(p => new ExerciseItemViewModel
+                {
+                    Name = p.Name,
+                    Description = p.Description,
+                    ImageArray = p.ImageArray,
+                    ImagePath = p.ImagePath,
+                    ExerciseId = p.ExerciseId,
+                    PublishOn = p.PublishOn,
+
+                }).Where(p => p.Name.ToLower().Contains(this.Filter.ToLower())).ToList(); ;
+
+                this.Exercises = new ObservableCollection<ExerciseItemViewModel>(
+                    myListExerciseViewModel.OrderBy(p => p.Name));
+            }
         }
         #endregion
 
         #region Commands
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(RefreshList);
+            }
+        }
+
         public ICommand RefreshCommand
         {
             get
