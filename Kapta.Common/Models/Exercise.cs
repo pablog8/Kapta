@@ -31,6 +31,20 @@ namespace Kapta.Common.Models
 
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }
+
+        public string ImageFullPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.ImagePath))
+                {
+                    return "noexercise.png";
+                }
+                //devuelve la imagen (pagina de backend)
+                return $"http://kaptabackend.azurewebsites.net/{this.ImagePath.Substring(1)}";
+               // return $"http://kaptaapi.azurewebsites.net/{this.ImagePath.Substring(1)}";
+            }
+        }
         public override string ToString()
         {
             return this.Name;

@@ -135,4 +135,7 @@
       <Name>Kapta</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\noexercise.jpg" />
+  </ItemGroup>
 </Project>

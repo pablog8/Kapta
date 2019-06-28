@@ -5,6 +5,11 @@
              x:Class="Kapta.Ejercicios.ExercisesPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate Exercises}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_action_add_circle.png" Command="{Binding AddProductCommand}">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Exercises}" Padding="5">
             <ListView 
@@ -18,21 +23,32 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label
-                                    FontAttributes="Bold"
+                                <Image
                                     Grid.Column="0"
-                                    Text="{Binding Name}">
+                                    Source="{Binding ImageFullPath}"
+                                    WidthRequest="100">
                                     
-                                </Label>
+                                </Image>
                                 <Label
                                     FontAttributes="Bold"
                                     Grid.Column="1"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center">
+                                    
+                                </Label>
+                                <!--  
+                                <Label
+                                    FontAttributes="Bold"
+                                    Grid.Column="2"
                                     Text="{Binding Description}">
 
                                 </Label>
+                                -->  
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
