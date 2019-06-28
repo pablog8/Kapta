@@ -4,6 +4,8 @@
     using Kapta.Common.Models;
     using Kapta.Herramientas.Helpers;
     using Kapta.Herramientas.Services;
+    using Plugin.Media;
+    using Plugin.Media.Abstractions;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,8 +17,8 @@
     {
         #region Attributes
 
-        //private MediaFile file;
-        //private ImageSource imageSource;
+        private MediaFile file;
+        private ImageSource imageSource;
         private APIService apiService;
         private bool isRunning;
         private bool isEnabled;
@@ -64,13 +66,13 @@
             get { return this.isEnabled; }
             set { this.SetValue(ref this.isEnabled, value); }
         }
-        /*
+        
         public ImageSource ImageSource
         {
             get { return this.imageSource; }
             set { this.SetValue(ref this.imageSource, value); }
         }
-        */
+        
         #endregion
 
         #region Constructors
@@ -79,7 +81,7 @@
         {
             this.apiService = new APIService();
             this.IsEnabled = true;
-            //this.ImageSource = "noexercise";
+            this.ImageSource = "noexercise";
             //this.LoadCategories();
         }
         
@@ -136,7 +138,7 @@
 
 
         #region Commands
-            /*
+            
         public ICommand ChangeImageCommand
         {
             get
@@ -144,9 +146,9 @@
                 return new RelayCommand(ChangeImage);
             }
         }
-        */
+        
 
-        /*
+        
         private async void ChangeImage()
         {
             //inicializamos librería de fotos
@@ -197,7 +199,7 @@
                 });
             }
         }
-        */
+        
         public ICommand SaveCommand
         {
             get
