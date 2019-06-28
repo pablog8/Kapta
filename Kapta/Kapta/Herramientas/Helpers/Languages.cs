@@ -353,6 +353,11 @@
         {
             get { return Resource.NameError; }
         }
+        public static string EditExercise
+        {
+            get { return Resource.EditExercise; }
+        }
+
 
     }
 }

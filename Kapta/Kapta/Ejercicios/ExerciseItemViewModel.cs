@@ -29,18 +29,20 @@
 
 
         #region Commands
-        /*
-        public ICommand EditProductCommand
+        
+        public ICommand EditExerciseCommand
         {
             get
             {
-                return new RelayCommand(EditProduct);
+                return new RelayCommand(EditExercise);
             }
         }
 
-        private async void EditProduct()
+        private async void EditExercise()
         {
-
+            MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
+            await Application.Current.MainPage.Navigation.PushAsync(new EditExercisePage());
+            /*
             if (MainViewModel.GetInstance().UserASP.Email == "prueba3@usal.es")
             {
                 //Creamos una instancia y ligarlo a la viewmodel
@@ -49,16 +51,17 @@
             }
             else
             {
+            
                 //Creamos una instancia y ligarlo a la viewmodel
                 MainViewModel.GetInstance().EditProduct = new EditProductViewModel(this);
 
                 //tiene que apilar otra pagina
                 await App.Navigator.PushAsync(new EditProductUser());
-            }
-
+           // }
+           */
 
         }
-        */
+        
         public ICommand DeleteExerciseCommand
         {
             get

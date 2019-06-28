@@ -333,4 +333,7 @@
   <data name="NameError" xml:space="preserve">
     <value>You must enter a name</value>
   </data>
+  <data name="EditExercise" xml:space="preserve">
+    <value>Edit Exercise</value>
+  </data>
 </root>

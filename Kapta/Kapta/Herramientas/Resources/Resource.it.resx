@@ -336,4 +336,7 @@ Note:
   <data name="NameError" xml:space="preserve">
     <value>È necessario immettere un nome.</value>
   </data>
+  <data name="EditExercise" xml:space="preserve">
+    <value>Via!</value>
+  </data>
 </root>

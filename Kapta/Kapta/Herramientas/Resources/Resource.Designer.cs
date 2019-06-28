@@ -232,6 +232,15 @@ namespace Kapta.Herramientas.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Edit Exercise.
+        /// </summary>
+        public static string EditExercise {
+            get {
+                return ResourceManager.GetString("EditExercise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Edit Product.
         /// </summary>
         public static string EditProduct {
@@ -673,7 +682,7 @@ namespace Kapta.Herramientas.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SetunewExercise.
+        ///   Busca una cadena traducida similar a Setup.
         /// </summary>
         public static string Setup {
             get {

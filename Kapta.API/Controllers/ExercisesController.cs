@@ -52,6 +52,22 @@
             {
                 return BadRequest();
             }
+            //el usuario mando una foto
+            if (exercise.ImageArray != null && exercise.ImageArray.Length > 0)
+            {
+
+                var stream = new MemoryStream(exercise.ImageArray);
+                var guid = Guid.NewGuid().ToString();
+                var file = $"{guid}.jpg";
+                var folder = "~/Content/Exercises";
+                var fullPath = $"{folder}/{file}";
+                var response = FilesHelper.UploadPhoto(stream, folder, file);
+
+                if (response)
+                {
+                    exercise.ImagePath = fullPath;
+                }
+            }
 
             db.Entry(exercise).State = EntityState.Modified;
 
@@ -71,7 +87,7 @@
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(exercise);
         }
 
         // POST: api/Exercises
