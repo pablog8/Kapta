@@ -1,7 +1,9 @@
 ﻿namespace Kapta.Ejercicios
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Common.Models;
     using Kapta.Herramientas.Helpers;
+    using Kapta.Herramientas.Services;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -14,7 +16,7 @@
 
         //private MediaFile file;
         //private ImageSource imageSource;
-        //private APIService apiService;
+        private APIService apiService;
         private bool isRunning;
         private bool isEnabled;
         //private ObservableCollection<Category> categories;
@@ -74,7 +76,7 @@
             
         public AddExerciseViewModel()
         {
-            //this.apiService = new APIService();
+            this.apiService = new APIService();
             this.IsEnabled = true;
             //this.ImageSource = "noexercise";
             //this.LoadCategories();
@@ -250,7 +252,7 @@
                     Languages.Accept);
                 return;
             }
-
+            */
             this.IsRunning = true;
             this.IsEnabled = false;
 
@@ -267,6 +269,7 @@
             }
 
             //para saber si se cogió o no foto
+            /*
             byte[] imageArray = null;
             if (this.file != null)
             {
@@ -276,29 +279,30 @@
             // var location = await this.GetLocation();
 
             //metemos lo que mandemos al post como un producto
-            /*
-            var product = new Product
+            */
+            var exercise = new Exercise
             {
+                Name = this.Name,
                 Description = this.Description,
                 //Price = price,
-                Remarks = this.Remarks,
-                ImageArray = imageArray,
-                CategoryId = this.Category.CategoryId,
-                UserId = MainViewModel.GetInstance().UserASP.Id,
+                //Remarks = this.Remarks,
+                //ImageArray = imageArray,
+                //CategoryId = this.Category.CategoryId,
+                //UserId = MainViewModel.GetInstance().UserASP.Id,
                 //    Latitude = location == null ? 0 : location.Latitude,
                 //    Longitude = location == null ? 0 : location.Longitude,
 
             };
-
+            
 
             var url = Application.Current.Resources["UrlAPI"].ToString();
 
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
 
-            var controller = Application.Current.Resources["UrlProductsController"].ToString();
+            var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
             //invocamos el metodo post del apiservice
-            var response = await this.apiService.Post(url, prefix, controller, product, Settings.TokenType, Settings.AccessToken);
+            var response = await this.apiService.Post(url, prefix, controller, exercise);
 
             //preguntamos si lo grabó de manera exitosa
             if (!response.IsSuccess)
@@ -309,21 +313,22 @@
                 return;
             }
 
-            var newProduct = (Product)response.Result;
-
+            //var newExercise = (Exercise)response.Result;
+            /*
             //adicionamos el producto a la colección
-            var productsViewModel = ProductsViewModel.GetInstance();
-            productsViewModel.MyProducts.Add(newProduct);
+            var productsViewModel = ExercisesViewModel.GetInstance();
+            productsViewModel.MyProducts.Add(newExercise);
             productsViewModel.RefreshList();
             // la ordenamos
             //viewModel.Products = viewModel.Products.OrderBy(p => p.Description).ToList();
 
-
+            */
             //si lo hizo de manera exitosa hacemos el back
             this.IsRunning = false;
             this.IsEnabled = true;
             //Desapilamos
-            await App.Navigator.PopAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
+           // await App.Navigator.PopAsync();
 
         }
         /*
@@ -338,4 +343,4 @@
         #endregion
     }
 }
-}
+

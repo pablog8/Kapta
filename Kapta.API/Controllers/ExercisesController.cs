@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
-using Kapta.Common.Models;
-using Kapta.Domain.Models;
-
-namespace Kapta.API.Controllers
+﻿namespace Kapta.API.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using System.Web.Http;
+    using System.Web.Http.Description;
+    using Kapta.Common.Models;
+    using Kapta.Domain.Models;
+
     public class ExercisesController : ApiController
     {
         private DataContext db = new DataContext();
@@ -21,7 +21,7 @@ namespace Kapta.API.Controllers
         // GET: api/Exercises
         public IQueryable<Exercise> GetExercises()
         {
-            return db.Exercises;
+            return db.Exercises.OrderBy(p => p.Name);
         }
 
         // GET: api/Exercises/5
@@ -76,6 +76,9 @@ namespace Kapta.API.Controllers
         [ResponseType(typeof(Exercise))]
         public async Task<IHttpActionResult> PostExercise(Exercise exercise)
         {
+            //añado hora de londres. Para que sea de españa le sumo 1
+            exercise.PublishOn = DateTime.Now.ToUniversalTime();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
