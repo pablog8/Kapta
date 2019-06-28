@@ -35,7 +35,7 @@
             //Antes de lanzar la pagina instanciamos la viewmodel que gobierna la pagina
             this.AddExercise = new AddExerciseViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new AddExercisePage());
-            //await App.Navigator.PushAsync(new AddExercisePage());
+            //await ApnewExercise.Navigator.PushAsync(new AddExercisePage());
         }
         
         #endregion

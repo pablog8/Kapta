@@ -5,6 +5,7 @@ using Kapta.Herramientas.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -16,12 +17,15 @@ namespace Kapta.Ejercicios
         #region Attributes
         private APIService apiService;
         private bool isRefreshing;
+
+        private ObservableCollection<ExerciseItemViewModel> exercises;
         #endregion
 
         #region Properties
-        private ObservableCollection<Exercise> exercises;
 
-        public ObservableCollection<Exercise> Exercises
+        public List<Exercise> MyExercises { get; set; }
+
+        public ObservableCollection<ExerciseItemViewModel> Exercises
         {
             get { return this.exercises; }
             set { this.SetValue(ref this.exercises, value); }
@@ -81,9 +85,28 @@ namespace Kapta.Ejercicios
                 return;
             }
 
-            var list = (List<Exercise>)response.Result;
-            this.Exercises = new ObservableCollection<Exercise>(list);
+            this.MyExercises = (List<Exercise>)response.Result;
+            this.RefreshList();
+
+           
             this.IsRefreshing = false;
+        }
+
+        public void RefreshList()
+        {
+            var myListExerciseViewModel = MyExercises.Select(p => new ExerciseItemViewModel
+            {
+                Name = p.Name,
+                Description = p.Description,
+                ImageArray = p.ImageArray,
+                ImagePath = p.ImagePath,
+                ExerciseId = p.ExerciseId,
+                PublishOn = p.PublishOn,
+
+            });
+
+            this.Exercises = new ObservableCollection<ExerciseItemViewModel>(
+                myListExerciseViewModel.OrderBy(p => p.Name));
         }
         #endregion
 

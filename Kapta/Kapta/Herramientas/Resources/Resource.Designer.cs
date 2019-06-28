@@ -673,7 +673,7 @@ namespace Kapta.Herramientas.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Setup.
+        ///   Busca una cadena traducida similar a SetunewExercise.
         /// </summary>
         public static string Setup {
             get {

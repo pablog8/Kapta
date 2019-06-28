@@ -272,7 +272,7 @@
             }
 
             //para saber si se cogió o no foto
-            /*
+            
             byte[] imageArray = null;
             if (this.file != null)
             {
@@ -282,14 +282,14 @@
             // var location = await this.GetLocation();
 
             //metemos lo que mandemos al post como un producto
-            */
+            
             var exercise = new Exercise
             {
                 Name = this.Name,
                 Description = this.Description,
                 //Price = price,
                 //Remarks = this.Remarks,
-                //ImageArray = imageArray,
+                ImageArray = imageArray,
                 //CategoryId = this.Category.CategoryId,
                 //UserId = MainViewModel.GetInstance().UserASP.Id,
                 //    Latitude = location == null ? 0 : location.Latitude,
@@ -319,9 +319,9 @@
             var newExercise = (Exercise)response.Result;
             
             //adicionamos el producto a la colección
-            var viewModel = ExercisesViewModel.GetInstance();
-            viewModel.Exercises.Add(newExercise);
-            //viewModel.RefreshList();
+            var exercisesViewModel = ExercisesViewModel.GetInstance();
+            exercisesViewModel.MyExercises.Add(newExercise);
+            exercisesViewModel.RefreshList();
             // la ordenamos
             //viewModel.Exercises = viewModel.Exercises.OrderBy(p => p.Description).ToList();
 

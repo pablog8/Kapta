@@ -5,12 +5,14 @@
     using System.Data;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.IO;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Description;
+    using Kapta.API.Helpers;
     using Kapta.Common.Models;
     using Kapta.Domain.Models;
 
@@ -84,8 +86,24 @@
                 return BadRequest(ModelState);
             }
 
-            db.Exercises.Add(exercise);
-            await db.SaveChangesAsync();
+            //el usuario mando una foto
+            if (exercise.ImageArray != null && exercise.ImageArray.Length > 0)
+            {
+
+                var stream = new MemoryStream(exercise.ImageArray);
+                var guid = Guid.NewGuid().ToString();
+                var file = $"{guid}.jpg";
+                var folder = "~/Content/Exercises";
+                var fullPath = $"{folder}/{file}";
+                var response = FilesHelper.UploadPhoto(stream, folder, file);
+
+                if (response)
+                {
+                    exercise.ImagePath = fullPath;
+                }
+            }
+            this.db.Exercises.Add(exercise);
+            await this.db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = exercise.ExerciseId }, exercise);
         }

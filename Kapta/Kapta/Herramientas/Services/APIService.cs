@@ -139,5 +139,49 @@
 
             }
         }
+
+        //Delete
+        public async Task<Response> Delete(string urlBase, string prefix, string controller, int id)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+
+                //stringformat, concateno
+                var url = $"{prefix}{controller}/{id}";
+
+                var response = await client.DeleteAsync(url);
+
+                var answer = await response.Content.ReadAsStringAsync();
+
+                //comprobamos si el servicio es exitoso o no, si falla devolvemos que no fue posible
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+                    };
+                }
+
+                return new Response
+                {
+                    IsSuccess = true,
+
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+
+            }
+
+        }
     }
 }

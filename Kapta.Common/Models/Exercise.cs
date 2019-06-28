@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 namespace Kapta.Common.Models
 {
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -31,6 +32,9 @@ namespace Kapta.Common.Models
 
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }
+        //para tener atributos que no esten en la base de datos pero si en el modelo
+        [NotMapped]
+        public byte[] ImageArray { get; set; }
 
         public string ImageFullPath
         {
@@ -41,8 +45,8 @@ namespace Kapta.Common.Models
                     return "noexercise.png";
                 }
                 //devuelve la imagen (pagina de backend)
-                return $"http://kaptabackend.azurewebsites.net/{this.ImagePath.Substring(1)}";
-               // return $"http://kaptaapi.azurewebsites.net/{this.ImagePath.Substring(1)}";
+                //return $"http://kaptabackend.azurewebsites.net/{this.ImagePath.Substring(1)}";
+                return $"http://kaptaapi.azurewebsites.net/{this.ImagePath.Substring(1)}";
             }
         }
         public override string ToString()
