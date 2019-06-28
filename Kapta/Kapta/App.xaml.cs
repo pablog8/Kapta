@@ -1,4 +1,5 @@
 ﻿using Kapta.Ejercicios;
+using Kapta.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,10 @@ namespace Kapta
 		public App ()
 		{
 			InitializeComponent();
-
-			MainPage = new NavigationPage(new ExercisesPage());
-		}
+            MainViewModel.GetInstance().Login = new LoginViewModel();
+            MainPage = new LoginPage();
+            //MainPage = new NavigationPage(new ExercisesPage());
+        }
 
 		protected override void OnStart ()
 		{

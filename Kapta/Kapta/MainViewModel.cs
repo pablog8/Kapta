@@ -2,6 +2,7 @@
 {
     using GalaSoft.MvvmLight.Command;
     using Kapta.Ejercicios;
+    using Kapta.Usuarios;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -11,6 +12,8 @@
     public class MainViewModel
     {
         #region Properties
+        public LoginViewModel Login { get; set; }
+
         public EditExerciseViewModel EditExercise { get; set; }
 
         public ExercisesViewModel Exercises { get; set; }
@@ -23,7 +26,7 @@
         public MainViewModel()
         {
             instance = this;
-            this.Exercises = new ExercisesViewModel();
+            //this.Exercises = new ExercisesViewModel();
         }
         #endregion
 
