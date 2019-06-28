@@ -322,6 +322,15 @@
     <value>Exercises</value>
   </data>
   <data name="AddExercises" xml:space="preserve">
-    <value>Add Exercises</value>
+    <value>Add Exercise</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NamePlaceholder" xml:space="preserve">
+    <value>Enter the name</value>
+  </data>
+  <data name="NameError" xml:space="preserve">
+    <value>You must enter a name</value>
   </data>
 </root>

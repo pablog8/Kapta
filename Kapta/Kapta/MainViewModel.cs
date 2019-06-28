@@ -12,6 +12,9 @@
     {
         public ExercisesViewModel Exercises { get; set; }
 
+        public AddExerciseViewModel AddExercise { get; set; }
+
+
         public MainViewModel()
         {
             this.Exercises = new ExercisesViewModel();
@@ -30,7 +33,7 @@
         private async void GoToAddExercise()
         {
             //Antes de lanzar la pagina instanciamos la viewmodel que gobierna la pagina
-            //this.AddExercise = new AddExercisetViewModel();
+            this.AddExercise = new AddExerciseViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new AddExercisePage());
             //await App.Navigator.PushAsync(new AddExercisePage());
         }

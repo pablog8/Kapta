@@ -327,4 +327,13 @@ Note:
   <data name="AddExercises" xml:space="preserve">
     <value>AGGIUNGI ESERCIZI</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>N&amp;ome:</value>
+  </data>
+  <data name="NamePlaceholder" xml:space="preserve">
+    <value>Immettere il nome</value>
+  </data>
+  <data name="NameError" xml:space="preserve">
+    <value>È necessario immettere un nome.</value>
+  </data>
 </root>

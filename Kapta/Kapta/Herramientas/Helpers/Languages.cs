@@ -341,6 +341,18 @@
         {
             get { return Resource.AddExercises; }
         }
+        public static string Name
+        {
+            get { return Resource.Name; }
+        }
+        public static string NamePlaceholder
+        {
+            get { return Resource.NamePlaceholder; }
+        }
+        public static string NameError
+        {
+            get { return Resource.NameError; }
+        }
 
     }
 }

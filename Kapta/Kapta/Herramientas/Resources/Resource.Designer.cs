@@ -79,7 +79,7 @@ namespace Kapta.Herramientas.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add Exercises.
+        ///   Busca una cadena traducida similar a Add Exercise.
         /// </summary>
         public static string AddExercises {
             get {
@@ -408,6 +408,33 @@ namespace Kapta.Herramientas.Resources {
         public static string Menu {
             get {
                 return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must enter a name.
+        /// </summary>
+        public static string NameError {
+            get {
+                return ResourceManager.GetString("NameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter the name.
+        /// </summary>
+        public static string NamePlaceholder {
+            get {
+                return ResourceManager.GetString("NamePlaceholder", resourceCulture);
             }
         }
         
