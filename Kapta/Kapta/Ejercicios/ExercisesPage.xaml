@@ -12,6 +12,13 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Exercises}" Padding="5">
+            <SearchBar
+                HeightRequest="40"
+                Placeholder="{i18n:Translate Search}"
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding Filter}">
+
+            </SearchBar>
             <ListView 
                 HasUnevenRows="True" 
                 IsRefreshing="{Binding IsRefreshing}"
@@ -26,6 +33,9 @@
                                 <MenuItem Text="{i18n:Translate Delete}" Command="{Binding DeleteExerciseCommand}" IsDestructive="True"/>
                             </ViewCell.ContextActions>
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditExerciseCommand}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -45,6 +55,11 @@
                                     VerticalOptions="Center">
                                     
                                 </Label>
+                                <Image Source="ic_chevron_right"
+                                       VerticalOptions="Center"
+                                       Grid.Column="2">
+                                    
+                                </Image>
                                 <!--  
                                 <Label
                                     FontAttributes="Bold"

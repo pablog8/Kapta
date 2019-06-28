@@ -61,6 +61,81 @@ namespace Kapta.Ejercicios
 
         #region Commands
 
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return new RelayCommand(Delete);
+            }
+
+        }
+
+        private async void Delete()
+        {
+            var answer = await Application.Current.MainPage.DisplayAlert(
+                Languages.Confirm,
+                Languages.DeleteConfirmation,
+                Languages.Yes,
+                Languages.No);
+            if (!answer)
+            {
+                return;
+            }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+            //eliminamos el producto
+            //comprobamos si hay conexión
+            var connection = await this.apiService.CheckConnection();
+            //si la conexion a internet no ha sido exitosa
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+                return;
+
+            }
+
+            //vamos a la api
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+
+            var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+
+            var controller = Application.Current.Resources["UrlExercisesController"].ToString();
+
+            var response = await this.apiService.Delete(url, prefix, controller, this.Exercise.ExerciseId);
+
+            if (!response.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+
+                return;
+            }
+
+            //hay que actualizar la lista, llamamos a  SINGLETON
+            var productsViewModel = ExercisesViewModel.GetInstance();
+
+            //buscamos el producto en la lista y lo eliminamos
+            var deletedExercise = productsViewModel.MyExercises.Where(p => p.ExerciseId == this.Exercise.ExerciseId).FirstOrDefault();
+
+            //si encontramos el producto
+            if (deletedExercise != null)
+            {
+                productsViewModel.MyExercises.Remove(deletedExercise);
+            }
+            productsViewModel.RefreshList();
+
+            this.IsRunning = false;
+            this.IsEnabled = true;
+
+            await Application.Current.MainPage.Navigation.PopAsync();
+
+
+        }
+
         public ICommand ChangeImageCommand
         {
             get

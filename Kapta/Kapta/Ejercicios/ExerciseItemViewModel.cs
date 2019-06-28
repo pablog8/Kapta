@@ -115,14 +115,14 @@
             var exercisesViewModel = ExercisesViewModel.GetInstance();
 
             //buscamos el producto en la lista y lo eliminamos
-            var deletedProduct = exercisesViewModel.Exercises.Where(p => p.ExerciseId == this.ExerciseId).FirstOrDefault();
+            var deletedExercise = exercisesViewModel.MyExercises.Where(p => p.ExerciseId == this.ExerciseId).FirstOrDefault();
 
             //si encontramos el producto
-            if (deletedProduct != null)
+            if (deletedExercise != null)
             {
-                exercisesViewModel.Exercises.Remove(deletedProduct);
+                exercisesViewModel.MyExercises.Remove(deletedExercise);
             }
-            //exercisesViewModel.RefreshList();
+            exercisesViewModel.RefreshList();
         }
 
         #endregion
