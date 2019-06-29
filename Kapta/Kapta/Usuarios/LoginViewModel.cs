@@ -124,17 +124,24 @@
                 await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.SomethingWrong, Languages.Accept);
                 return;
             }
-            this.IsRunning = false;
-            this.IsEnabled = true;
-            Application.Current.MainPage = new ExercisesPage();
+            
+
+            
 
             // si llegamos aquí ya podemos consumir los productos con el token
-            /*
+            
             Settings.TokenType = token.TokenType;
             Settings.AccessToken = token.AccessToken;
             Settings.IsRemembered = this.IsRemembered;
 
+
+            MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
+            Application.Current.MainPage = new ExercisesPage();
+            this.IsRunning = false;
+            this.IsEnabled = true;
+
             //OBTENEMOS EL USUARIO
+            /*
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlUsersController"].ToString();
             var response = await this.apiService.GetUser(url, prefix, $"{controller}/GetUser", this.Email, token.TokenType, token.AccessToken);
@@ -144,8 +151,8 @@
                 MainViewModel.GetInstance().UserASP = userASP;
                 Settings.UserASP = JsonConvert.SerializeObject(userASP);
             }
-
-
+            */
+            /*
             //instanciamos la viewmodel de la page que instanciemos
             MainViewModel.GetInstance().Categories = new CategoriesViewModel();
             Application.Current.MainPage = new MasterPage();

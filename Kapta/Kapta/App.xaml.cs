@@ -1,4 +1,5 @@
 ﻿using Kapta.Ejercicios;
+using Kapta.Herramientas.Helpers;
 using Kapta.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,29 @@ namespace Kapta
 {
 	public partial class App : Application
 	{
-		public App ()
+        public static NavigationPage Navigator { get; internal set; }
+
+        public App ()
 		{
 			InitializeComponent();
-            MainViewModel.GetInstance().Login = new LoginViewModel();
-            MainPage = new NavigationPage (new LoginPage());
+
+            if (Settings.IsRemembered && !string.IsNullOrEmpty(Settings.AccessToken))
+            {
+
+                MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
+                MainPage = new MasterPage(); 
+            }
+
+
+
+            else
+            {
+                MainViewModel.GetInstance().Login = new LoginViewModel();
+                MainPage = new NavigationPage(new LoginPage());
+            }
+
+           // MainViewModel.GetInstance().Login = new LoginViewModel();
+            //MainPage = new NavigationPage (new LoginPage());
             //MainPage = new NavigationPage(new ExercisesPage());
         }
 

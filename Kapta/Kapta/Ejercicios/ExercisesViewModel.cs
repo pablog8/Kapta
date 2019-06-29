@@ -92,7 +92,7 @@ namespace Kapta.Ejercicios
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
-            var response = await this.apiService.GetList<Exercise>(url, prefix, controller);
+            var response = await this.apiService.GetList<Exercise>(url, prefix, controller, Settings.TokenType, Settings.AccessToken);
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;

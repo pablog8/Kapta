@@ -305,7 +305,7 @@
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
             //invocamos el metodo post del apiservice
-            var response = await this.apiService.Post(url, prefix, controller, exercise);
+            var response = await this.apiService.Post(url, prefix, controller, exercise, Settings.TokenType, Settings.AccessToken);
 
             //preguntamos si lo grabó de manera exitosa
             if (!response.IsSuccess)

@@ -104,7 +104,7 @@ namespace Kapta.Ejercicios
 
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
-            var response = await this.apiService.Delete(url, prefix, controller, this.Exercise.ExerciseId);
+            var response = await this.apiService.Delete(url, prefix, controller, this.Exercise.ExerciseId, Settings.TokenType, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {
@@ -286,7 +286,7 @@ namespace Kapta.Ejercicios
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
             //invocamos el metodo put del apiservice
-            var response = await this.apiService.Put(url, prefix, controller, this.Exercise, this.Exercise.ExerciseId);
+            var response = await this.apiService.Put(url, prefix, controller, this.Exercise, this.Exercise.ExerciseId, Settings.TokenType, Settings.AccessToken);
 
             //preguntamos si lo grabó de manera exitosa
             if (!response.IsSuccess)

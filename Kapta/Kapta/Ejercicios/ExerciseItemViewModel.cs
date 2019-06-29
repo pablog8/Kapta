@@ -101,7 +101,7 @@
 
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
-            var response = await this.apiService.Delete(url, prefix, controller, this.ExerciseId);
+            var response = await this.apiService.Delete(url, prefix, controller, this.ExerciseId, Settings.TokenType, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {
