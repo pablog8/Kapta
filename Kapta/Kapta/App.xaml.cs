@@ -15,7 +15,7 @@ namespace Kapta
 		{
 			InitializeComponent();
             MainViewModel.GetInstance().Login = new LoginViewModel();
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage (new LoginPage());
             //MainPage = new NavigationPage(new ExercisesPage());
         }
 

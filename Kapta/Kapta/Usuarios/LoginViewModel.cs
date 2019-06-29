@@ -1,6 +1,7 @@
 ﻿namespace Kapta.Usuarios
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
     using Kapta.Herramientas.Services;
     using Newtonsoft.Json;
@@ -94,7 +95,7 @@
                     Languages.Accept);
                 return;
             }
-            /*
+
             this.IsRunning = true;
             this.IsEnabled = false;
 
@@ -112,7 +113,7 @@
             var url = Application.Current.Resources["UrlAPI"].ToString();
 
             //consumimos el token
-         //   var token = await this.apiService.GetToken(url, this.Email, this.Password);
+            var token = await this.apiService.GetToken(url, this.Email, this.Password);
 
             //comprobamos si el token es valido o no
 
@@ -123,9 +124,12 @@
                 await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.SomethingWrong, Languages.Accept);
                 return;
             }
+            this.IsRunning = false;
+            this.IsEnabled = true;
+            Application.Current.MainPage = new ExercisesPage();
 
             // si llegamos aquí ya podemos consumir los productos con el token
-            
+            /*
             Settings.TokenType = token.TokenType;
             Settings.AccessToken = token.AccessToken;
             Settings.IsRemembered = this.IsRemembered;
@@ -145,11 +149,10 @@
             //instanciamos la viewmodel de la page que instanciemos
             MainViewModel.GetInstance().Categories = new CategoriesViewModel();
             Application.Current.MainPage = new MasterPage();
+            */
 
-            this.IsRunning = false;
-            this.IsEnabled = true;
         }
-
+        /*
         //cuando se pulsa el boton de facebook
         public ICommand LoginFacebookComand
         {
@@ -234,8 +237,8 @@
                 new LoginTwitterPage());
         }
         */
-            #endregion
+        #endregion
 
-        }
+    //}
     }
 }
