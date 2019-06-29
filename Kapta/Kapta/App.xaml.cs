@@ -1,6 +1,8 @@
-﻿using Kapta.Ejercicios;
+﻿using Kapta.Common.Models;
+using Kapta.Ejercicios;
 using Kapta.Herramientas.Helpers;
 using Kapta.Usuarios;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,22 +20,27 @@ namespace Kapta
 		{
 			InitializeComponent();
 
-            if (Settings.IsRemembered && !string.IsNullOrEmpty(Settings.AccessToken))
+            //preguntamos si ya esta logeado o no
+            var mainViewModel = MainViewModel.GetInstance();
+
+            if (Settings.IsRemembered)
             {
 
-                MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
-                MainPage = new MasterPage(); 
+                if (!string.IsNullOrEmpty(Settings.UserASP))
+                {
+                    mainViewModel.UserASP = JsonConvert.DeserializeObject<MyUserASP>(Settings.UserASP);
+                }
+
+                mainViewModel.Exercises = new ExercisesViewModel();
+                this.MainPage = new MasterPage();
             }
-
-
-
             else
             {
-                MainViewModel.GetInstance().Login = new LoginViewModel();
-                MainPage = new NavigationPage(new LoginPage());
+                mainViewModel.Login = new LoginViewModel();
+                this.MainPage = new NavigationPage(new LoginPage());
             }
 
-           // MainViewModel.GetInstance().Login = new LoginViewModel();
+            // MainViewModel.GetInstance().Login = new LoginViewModel();
             //MainPage = new NavigationPage (new LoginPage());
             //MainPage = new NavigationPage(new ExercisesPage());
         }

@@ -1,6 +1,7 @@
 ﻿namespace Kapta
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Common.Models;
     using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
     using Kapta.Usuarios;
@@ -24,7 +25,24 @@
 
         public RegisterViewModel Register { get; set; }
 
+        public MyUserASP UserASP { get; set; }
+
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
+
+        public string UserFullName
+        {
+            get
+            {
+                //Si el usuario no es nulo y los datos claims son mayores que uno
+                if (this.UserASP != null && this.UserASP.Claims != null && this.UserASP.Claims.Count > 1)
+                {
+                    //devolvemos claim 0 y claim 1 que es el nombre y apellidos
+                    return $"{this.UserASP.Claims[0].ClaimValue} {this.UserASP.Claims[1].ClaimValue}";
+                }
+
+                return null;
+            }
+        }
         #endregion
 
 

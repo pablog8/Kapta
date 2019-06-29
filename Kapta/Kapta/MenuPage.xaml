@@ -17,15 +17,14 @@
 	HeightRequest="200">
             </controls:CircleImage>
 -->
-            <!--<Label
+            <Label
 	            FontAttributes="Bold"
 	            FontSize="Large"
 	            HorizontalOptions="Center"
 	            Text="{Binding UserFullName}"
 	            TextColor="Black">
             </Label>
--->
-            
+
             <ListView
             	ItemsSource="{Binding Menu}"
             	HasUnevenRows="True"

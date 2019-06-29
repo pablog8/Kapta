@@ -55,7 +55,7 @@ namespace Kapta.API.Helpers
                     return new Response
                     {
                         IsSuccess = false,
-                        Message = "001. User already exists.",
+                        Message = "El usuario ya existe con ese email",
                     };
                 }
 

@@ -1,6 +1,7 @@
 ﻿namespace Kapta.Usuarios
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Common.Models;
     using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
     using Kapta.Herramientas.Services;
@@ -135,13 +136,8 @@
             Settings.IsRemembered = this.IsRemembered;
 
 
-            MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
-            Application.Current.MainPage = new MasterPage();
-            this.IsRunning = false;
-            this.IsEnabled = true;
-
             //OBTENEMOS EL USUARIO
-            /*
+            
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlUsersController"].ToString();
             var response = await this.apiService.GetUser(url, prefix, $"{controller}/GetUser", this.Email, token.TokenType, token.AccessToken);
@@ -151,7 +147,12 @@
                 MainViewModel.GetInstance().UserASP = userASP;
                 Settings.UserASP = JsonConvert.SerializeObject(userASP);
             }
-            */
+
+
+            MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
+            Application.Current.MainPage = new MasterPage();
+            this.IsRunning = false;
+            this.IsEnabled = true;
             /*
             //instanciamos la viewmodel de la page que instanciemos
             MainViewModel.GetInstance().Categories = new CategoriesViewModel();
