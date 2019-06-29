@@ -1,0 +1,64 @@
+{
+  "images": [
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "2x",
+      "size": "0x0",
+      "idiom": "iphone",
+      "filename": "logotipok1.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "subtype": "retina4",
+      "scale": "2x",
+      "size": "0x0",
+      "idiom": "iphone",
+      "filename": "logotipok2.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "1x",
+      "size": "0x0",
+      "idiom": "ipad",
+      "filename": "logotipok3.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "1x",
+      "size": "0x0",
+      "idiom": "ipad",
+      "filename": "logotipok5.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "2x",
+      "size": "0x0",
+      "idiom": "ipad",
+      "filename": "logotipok4.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "2x",
+      "size": "0x0",
+      "idiom": "ipad",
+      "filename": "logotipok6.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}
