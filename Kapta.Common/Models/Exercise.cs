@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 namespace Kapta.Common.Models
 {
+    using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Text;
     using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace Kapta.Common.Models
     {
         [Key]
         public int ExerciseId { get; set; }
+
+        public int CategoryId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -30,6 +33,8 @@ namespace Kapta.Common.Models
         [DataType(DataType.Date)]
         public DateTime PublishOn { get; set; }
 
+        [JsonIgnore]
+        public virtual Category Category { get; set; }
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }
         //para tener atributos que no esten en la base de datos pero si en el modelo
