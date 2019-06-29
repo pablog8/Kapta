@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -18,6 +19,9 @@ namespace Kapta.Ejercicios
         private string filter;
 
         private APIService apiService;
+
+        private DataService dataService;
+
         private bool isRefreshing;
 
         private ObservableCollection<ExerciseItemViewModel> exercises;
@@ -57,6 +61,7 @@ namespace Kapta.Ejercicios
         {
             instance = this;
             this.apiService = new APIService();
+            this.dataService = new DataService();
             this.LoadExercises();
         }
         #endregion
@@ -81,13 +86,30 @@ namespace Kapta.Ejercicios
             this.IsRefreshing = true;
 
             var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
+            if (connection.IsSuccess)
+            {
+                var answer = await this.LoadExercisesFromAPI();
+                if (answer)
+                {
+                    this.SaveExercisesToDB();
+                }
+            }
+            else
+            {
+                await this.LoadExercisesFromDB();
+            }
+
+            if(this.MyExercises ==null || this.MyExercises.Count == 0)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.NoProductsMessage, Languages.Accept);
                 return;
-
             }
+            /*
+            this.IsRefreshing = false;
+            await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+            return;
+
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
@@ -101,10 +123,38 @@ namespace Kapta.Ejercicios
             }
 
             this.MyExercises = (List<Exercise>)response.Result;
+            */
             this.RefreshList();
-
-           
+            
             this.IsRefreshing = false;
+
+        }
+
+        private async Task LoadExercisesFromDB()
+        {
+            this.MyExercises = await this.dataService.GetAllExercises();
+        }
+
+        private async void SaveExercisesToDB()
+        {
+            await this.dataService.DeleteAllExercises();
+            this.dataService.Insert(this.MyExercises);
+        }
+
+        private async Task<bool> LoadExercisesFromAPI()
+        {
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+            var controller = Application.Current.Resources["UrlExercisesController"].ToString();
+
+            var response = await this.apiService.GetList<Exercise>(url, prefix, controller, Settings.TokenType, Settings.AccessToken);
+            if (!response.IsSuccess)
+            {
+                return false;
+            }
+
+            this.MyExercises = (List<Exercise>)response.Result;
+            return true;
         }
 
         public void RefreshList()
@@ -148,6 +198,7 @@ namespace Kapta.Ejercicios
                 this.Exercises = new ObservableCollection<ExerciseItemViewModel>(
                     myListExerciseViewModel.OrderBy(p => p.Name));
             }
+            
         }
         #endregion
 
