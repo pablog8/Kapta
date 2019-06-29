@@ -13,6 +13,7 @@
     using Kapta.Common.Models;
     using Kapta.Backend.Helpers;
 
+    [Authorize]
     public class ExercisesController : Controller
     {
         //la base de datos es db

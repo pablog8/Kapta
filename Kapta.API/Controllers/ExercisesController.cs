@@ -16,6 +16,7 @@
     using Kapta.Common.Models;
     using Kapta.Domain.Models;
 
+    [Authorize]
     public class ExercisesController : ApiController
     {
         private DataContext db = new DataContext();
