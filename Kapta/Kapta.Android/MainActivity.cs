@@ -10,6 +10,7 @@
     using Android.OS;
     using Plugin.CurrentActivity;
     using Plugin.Permissions;
+    using ImageCircle.Forms.Plugin.Droid;
 
     [Activity(Label = "Kapta", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -21,8 +22,9 @@
 
             base.OnCreate(bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
-
+            ImageCircleRenderer.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(
