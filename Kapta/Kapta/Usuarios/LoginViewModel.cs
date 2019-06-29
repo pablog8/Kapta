@@ -136,7 +136,7 @@
 
 
             MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
-            Application.Current.MainPage = new ExercisesPage();
+            Application.Current.MainPage = new MasterPage();
             this.IsRunning = false;
             this.IsEnabled = true;
 
