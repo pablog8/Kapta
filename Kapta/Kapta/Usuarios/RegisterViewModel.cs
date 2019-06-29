@@ -1,6 +1,7 @@
 ﻿namespace Kapta.Usuarios
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Common.Models;
     using Kapta.Herramientas.Helpers;
     using Kapta.Herramientas.Services;
     using Plugin.Media;
@@ -171,7 +172,7 @@
             }
 
             //valida conexión a internet
-            /*
+            
             this.IsRunning = true;
             this.IsEnabled = false;
 
@@ -193,24 +194,26 @@
             {
                 imageArray = FilesHelper.ReadFully(this.file.GetStream());
             }
-            /*
+            
             var userRequest = new UserRequest
             {
                 Address = this.Address,
+                Phone = this.Phone,
                 EMail = this.EMail,
                 FirstName = this.FirstName,
                 ImageArray = imageArray,
                 LastName = this.LastName,
                 Password = this.Password,
             };
-            */
-            /*
+            
+            
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlUsersController"].ToString();
+
             //Lo mandamos sin token porque el usuario todavia no se ha logueado
-            //var response = await this.apiService.Post(url, prefix, controller, userRequest);
-            /*
+            var response = await this.apiService.Post(url, prefix, controller, userRequest);
+            
             if (!response.IsSuccess)
             {
                 this.IsRunning = false;
@@ -221,7 +224,7 @@
                     Languages.Accept);
                 return;
             }
-            *//*
+            
             this.IsRunning = false;
             this.IsEnabled = true;
 
@@ -232,7 +235,7 @@
 
             await Application.Current.MainPage.Navigation.PopAsync();
 
-    */
+    
         }
 
         public ICommand ChangeImageCommand
