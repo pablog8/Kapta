@@ -114,7 +114,7 @@
                     Languages.Accept);
                 return;
             }
-            /*
+            
             if (!RegexHelper.IsValidEmailAddress(this.EMail))
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -123,7 +123,7 @@
                     Languages.Accept);
                 return;
             }
-            */
+            
             if (string.IsNullOrEmpty(this.Phone))
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -171,6 +171,7 @@
             }
 
             //valida conexión a internet
+            /*
             this.IsRunning = true;
             this.IsEnabled = false;
 
@@ -203,6 +204,7 @@
                 Password = this.Password,
             };
             */
+            /*
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlUsersController"].ToString();
@@ -219,7 +221,7 @@
                     Languages.Accept);
                 return;
             }
-            */
+            *//*
             this.IsRunning = false;
             this.IsEnabled = true;
 
@@ -230,7 +232,7 @@
 
             await Application.Current.MainPage.Navigation.PopAsync();
 
-
+    */
         }
 
         public ICommand ChangeImageCommand
