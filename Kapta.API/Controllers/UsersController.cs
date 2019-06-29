@@ -66,7 +66,7 @@
             }
 
         }
-        /*
+        
         [HttpPost]
         [Route("LoginFacebook")]
         public IHttpActionResult LoginFacebook(FacebookResponse profile)
@@ -89,7 +89,7 @@
             var answer = UsersHelper.CreateUserASP(userRequest);
             return Ok(answer);
         }
-
+        /*
         [HttpPost]
         [Route("LoginTwitter")]
         public IHttpActionResult LoginTwitter(TwitterResponse profile)

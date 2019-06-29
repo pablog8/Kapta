@@ -65,6 +65,12 @@
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Compat">
+      <Version>25.4.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Auth">
+      <Version>1.6.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
@@ -74,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementations\Localize.cs" />
+    <Compile Include="Implementations\LoginFacebookPageRenderer.cs" />
     <Compile Include="Implementations\PathService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -100,6 +107,10 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Kapta.Common\Kapta.Common.csproj">
+      <Project>{a733c9f3-8bbd-4009-bf73-ecaad376c992}</Project>
+      <Name>Kapta.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kapta\Kapta.csproj">
       <Project>{7B1149E6-1334-4B9A-BAB2-74A887C317A2}</Project>
       <Name>Kapta</Name>
