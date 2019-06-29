@@ -131,7 +131,7 @@ namespace Kapta.Ejercicios
             this.IsRunning = false;
             this.IsEnabled = true;
 
-            await Application.Current.MainPage.Navigation.PopAsync();
+            await App.Navigator.PopAsync();
 
 
         }
@@ -319,7 +319,7 @@ namespace Kapta.Ejercicios
             this.IsRunning = false;
             this.IsEnabled = true;
             //Desapilamos
-            await Application.Current.MainPage.Navigation.PopAsync();
+            await App.Navigator.PopAsync();
             // await App.Navigator.PopAsync();
 
         }

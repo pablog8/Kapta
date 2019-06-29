@@ -153,4 +153,25 @@
   <ItemGroup>
     <BundleResource Include="Resources\logotipokapta.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconfinanciacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\videos.png" />
+  </ItemGroup>
 </Project>

@@ -2,9 +2,11 @@
 {
     using GalaSoft.MvvmLight.Command;
     using Kapta.Ejercicios;
+    using Kapta.Herramientas.Helpers;
     using Kapta.Usuarios;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Text;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -19,6 +21,8 @@
         public ExercisesViewModel Exercises { get; set; }
 
         public AddExerciseViewModel AddExercise { get; set; }
+
+        public ObservableCollection<MenuItemViewModel> Menu { get; set; }
         #endregion
 
 
@@ -26,8 +30,80 @@
         public MainViewModel()
         {
             instance = this;
+            this.LoadMenu();
             //this.Exercises = new ExercisesViewModel();
         }
+        #endregion
+
+        //opciones del menú
+        #region Methods
+
+        private void LoadMenu()
+        {
+            this.Menu = new ObservableCollection<MenuItemViewModel>();
+
+            /*
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "message",
+                PageName = "Presentation",
+                Title = Languages.Presentation,
+            
+            */
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "user",
+                PageName = "Paciente",
+                Title = "Gestión de deportistas",
+            });
+            /*
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "ic_info",
+                PageName = "AboutPage",
+                Title = Languages.About,
+            });
+            */
+
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "contacts",
+                PageName = "Exercises",
+                Title = "Ejercicios",
+            });
+
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "videos",
+                PageName = "Videos",
+                Title = "Videos",
+            });
+
+
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "information",
+                PageName = "Contact",
+                Title = "Contacto",
+            });
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "iconfinanciacion",
+                PageName = "Financiacion",
+                Title = "Financiación",
+            });
+            this.Menu.Add(new MenuItemViewModel
+            {
+                Icon = "exit",
+                PageName = "LoginPage",
+                Title = Languages.Exit,
+            });
+
+
+
+        }
+
+
         #endregion
 
         #region Singleton
@@ -57,7 +133,8 @@
         {
             //Antes de lanzar la pagina instanciamos la viewmodel que gobierna la pagina
             this.AddExercise = new AddExerciseViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new AddExercisePage());
+            await App.Navigator.PushAsync(new AddExercisePage());
+            //await Application.Current.MainPage.Navigation.PushAsync(new AddExercisePage());
             //await ApnewExercise.Navigator.PushAsync(new AddExercisePage());
         }
         

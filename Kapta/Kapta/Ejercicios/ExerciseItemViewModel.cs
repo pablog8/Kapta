@@ -41,7 +41,7 @@
         private async void EditExercise()
         {
             MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new EditExercisePage());
+            await App.Navigator.PushAsync(new EditExercisePage());
             /*
             if (MainViewModel.GetInstance().UserASP.Email == "prueba3@usal.es")
             {
