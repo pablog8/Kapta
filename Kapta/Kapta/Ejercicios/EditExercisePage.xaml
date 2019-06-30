@@ -8,73 +8,136 @@
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding EditExercise}">
-            <StackLayout
-            Padding="5">
 
-                <Image
+                <StackLayout          
+            Padding="15" Spacing="10">
+                    <Image
                      Source="{Binding ImageSource}">
-                    <Image.GestureRecognizers>
+                        <!--<Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
+                        
+                    </Image.GestureRecognizers> -->
 
 
-                <Label
-                    FontSize="Small"
-                    HorizontalOptions="Center"
-                    Text="{i18n:Translate ChangeImage}">
+                    </Image>
+                    <Image
+                    	Aspect="AspectFit"
+                    	HeightRequest="70"
+                    	Source="pencil"
+                    	WidthRequest="70">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <!--<Label 
+                    
+                        FontSize="Small"
+                        HorizontalOptions="Center"
+                        Text="{i18n:Translate ChangeImage}">
+                </Label>-->
 
-                </Label>
-                <Grid>
+                    <!--<Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="3*"/>
-                    </Grid.RowDefinitions>
-                    <Label 
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>-->
+
+                    <Label
+                         TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
                         Grid.Column="0"
                         Grid.Row="0"
                         Text="{i18n:Translate Name}"
-                        VerticalOptions="Center">
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
 
                     </Label>
-
-                    <Entry 
+                    <Editor
                         Grid.Column="1"
                         Grid.Row="0"
                         Text="{Binding Exercise.Name}"
-                Placeholder="{Binding NamePlaceholder}">
-                    </Entry>
-
-                    <Label
+                        
+                >
+                        <!--Placeholder="{i18n:Translate DescriptionPlaceholder}"-->
+                    </Editor>
+                    <!--<Label
                         Grid.Column="0"
                         Grid.Row="1"
-                Text="{i18n:Translate Description}"
+                Text="{i18n:Translate Price}"
                         VerticalOptions="Center">
-                    </Label>
 
-                    <Editor
+                    </Label>
+                    <Entry
                         Grid.Column="1"
                         Grid.Row="1"
-                        Text="{Binding Exercise.Description}"
-                VerticalOptions="FillAndExpand">
+                Keyboard="Numeric"
+                        Text="{Binding Product.Price}"
+                Placeholder="{i18n:Translate PricePlaceholder}">
 
+                    </Entry>-->
+                    <Label
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="{i18n:Translate Description}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    </Label>
+                    <Editor
+                        
+                        Text="{Binding Exercise.Description}"
+                        VerticalOptions="FillAndExpand">
                     </Editor>
 
-                </Grid>
+                    <Label
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="{i18n:Translate Category}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    </Label>
+                    <Picker
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        ItemDisplayBinding="{Binding Description}"
+                        ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding Category}"
+                        Title="{i18n:Translate CategoryPlaceholder}">
+                    </Picker>
+
+                    <!--<Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Text="{i18n:Translate IsAvailable}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Switch
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        HorizontalOptions="End"
+                        IsToggled="{Binding Product.IsAvailable}">
+                    </Switch>-->
 
 
-                <ActivityIndicator
-                VerticalOptions="CenterAndExpand"
-                IsRunning="{Binding IsRunning}">
 
-                </ActivityIndicator>
-                <StackLayout
+                    <!--</Grid>-->
+
+
+                    <ActivityIndicator
+                IsRunning="{Binding IsRunning}"
+                VerticalOptions="CenterAndExpand">
+
+                    </ActivityIndicator>
+                    <StackLayout
                     Orientation="Horizontal">
-                    <Button
+                        <Button
                 
                 Text="{i18n:Translate Save}"
                 HorizontalOptions="FillAndExpand"
@@ -85,8 +148,8 @@
                 IsVisible="{Binding IsVisible}"
                 BackgroundColor="Navy"
                 TextColor="White">
-                    </Button>
-                    <Button
+                        </Button>
+                        <Button
                 
                 Text="{i18n:Translate Delete}"
                 HorizontalOptions="FillAndExpand"
@@ -97,10 +160,10 @@
                 IsVisible="{Binding IsVisible}"
                 BackgroundColor="Red"
                 TextColor="White">
-                    </Button>
+                        </Button>
+                    </StackLayout>
+
                 </StackLayout>
-          
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+            </ScrollView>
+        </ContentPage.Content>
 </ContentPage>

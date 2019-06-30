@@ -199,8 +199,8 @@ namespace Kapta.Ejercicios
                     PublishOn = p.PublishOn,
                     ExerciseId = p.ExerciseId,
                     //Remarks = p.Remarks,
-                    //CategoryId = p.CategoryId,
-                    //UserId = p.UserId,
+                    CategoryId = p.CategoryId,
+                    UserId = p.UserId,
 
                 });
 
@@ -218,6 +218,8 @@ namespace Kapta.Ejercicios
                     ImagePath = p.ImagePath,
                     ExerciseId = p.ExerciseId,
                     PublishOn = p.PublishOn,
+                    CategoryId = p.CategoryId,
+                    UserId = p.UserId,
 
                 }).Where(p => p.Name.ToLower().Contains(this.Filter.ToLower())).ToList(); ;
 
