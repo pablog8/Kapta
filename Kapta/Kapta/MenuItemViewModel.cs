@@ -68,7 +68,7 @@
             await App.Navigator.PushAsync(new Contact());
 
         }
-            /*
+            
         else if (this.PageName == "Paciente")
         {
             //para que oculte la master page
@@ -78,7 +78,7 @@
 
             await App.Navigator.PushAsync(new AthletePage(MainViewModel.GetInstance().UserASP.Email));
 
-        }*/
+        }
         else if (this.PageName == "Exercises")
         {
             //para que oculte la master page
