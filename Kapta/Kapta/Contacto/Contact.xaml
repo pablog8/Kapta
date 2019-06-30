@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Contacto.Contact"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Contacto">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Contact}">
+            <StackLayout Margin="20,20">
+                <!--<Label TextColor="Black" Text="Kapta es una aplicación ideada y programada por Pablo García Fernández y ha sido financiada por:"/> -->
+
+                <!--<forms:MediaElement HorizontalOptions = "Fill"  VerticalOptions = "Center"  HeightRequest = "240"  x:Name = "Media"  AreTransportControlsEnabled = "true" Source="https://www.youtube.com/embed/ju7s6tS0yqw" ></forms:MediaElement> -->
+
+                <!--<Image Source="patrocinadores.jpg" WidthRequest="350" HeightRequest="350" />  -->
+
+                <Label Text="CONTÁCTANOS" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+                <Label></Label>
+                <Label Text="Completa el siguiente formulario para contactarte con nosotros"></Label>
+                <Label></Label>
+                <Label Text="Nombre" FontAttributes="Bold"></Label>
+                <Entry Text="{Binding IntroducirNombre}" Placeholder="Introduzca su Nombre"/>
+
+                <Label Text="Email" FontAttributes="Bold"/>
+                <Entry Text="{Binding IntroducirEmail}" Placeholder="Introduzca su Email"/>
+
+
+                <!-- <Label x:Name="FalloEmail" TextColor="Red"/> -->
+
+                <Label Text="Asunto" FontAttributes="Bold"></Label>
+                <Entry Text="{Binding IntroducirAsunto}" Placeholder="Introduzca el Asunto"/>
+
+                <Label Text="Mensaje" FontAttributes="Bold"></Label>
+                <Entry Text="{Binding IntroducirMensaje}" Placeholder="Introduzca su Mensaje"/>
+                <Label></Label>
+                <Button Text="Enviar comentario" BackgroundColor="SeaGreen" TextColor="Wheat" Command="{Binding SendEmailCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -21,6 +21,7 @@ namespace Kapta
         {
             base.OnAppearing();
             App.Navigator = Navigator;
+            App.Master = this;
         }
     }
 }

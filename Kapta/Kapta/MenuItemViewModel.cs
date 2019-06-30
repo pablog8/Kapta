@@ -1,6 +1,7 @@
 ﻿namespace Kapta
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Contacto;
     using Kapta.Herramientas.Helpers;
     using Kapta.Usuarios;
     using System;
@@ -55,6 +56,7 @@
             App.Master.IsPresented = false;
             await App.Navigator.PushAsync(new Presentacion());
         }
+        */
         else if (this.PageName == "Contact")
         {
             //para que oculte la master page
@@ -64,6 +66,7 @@
             await App.Navigator.PushAsync(new Contact());
 
         }
+            /*
         else if (this.PageName == "Paciente")
         {
             //para que oculte la master page
@@ -96,7 +99,7 @@
             await App.Navigator.PushAsync(new VideosPage());
 
         }
-
+        */
         else if (this.PageName == "Financiacion")
         {
             //para que oculte la master page
@@ -108,7 +111,7 @@
             await App.Navigator.PushAsync(new Financiacion());
 
         }
-        */
+        
     }
     
         #endregion

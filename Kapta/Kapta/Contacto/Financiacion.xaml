@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Contacto.Financiacion"
+             Title="Financiación">
+    <ContentPage.Content>
+        <StackLayout Margin="25,25">
+            <Image Source="logotipokapta" WidthRequest="200" HeightRequest="100"></Image>
+
+            <Label TextColor="Black" FontSize="Medium" FontAttributes="None" Text="App ideada y programada por Pablo García Fernández y financiada por:"/>
+            <Label></Label>
+            <Image Source="patrocinadores.jpg" WidthRequest="254" HeightRequest="300" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

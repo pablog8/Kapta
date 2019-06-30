@@ -3,6 +3,7 @@
     using GalaSoft.MvvmLight.Command;
     using Kapta.Categorias;
     using Kapta.Common.Models;
+    using Kapta.Contacto;
     using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
     using Kapta.Usuarios;
@@ -29,6 +30,8 @@
         public AddExerciseViewModel AddExercise { get; set; }
 
         public RegisterViewModel Register { get; set; }
+
+        public ContactViewModel Contact { get; set; }
 
         public MyUserASP UserASP { get; set; }
 
