@@ -65,9 +65,24 @@
                     </Editor>
 
                 </Grid>
-            
-                
-            <ActivityIndicator
+                <Label
+                       TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="{i18n:Translate Category}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                </Label>
+                <Picker
+                        
+                        ItemDisplayBinding="{Binding Description}"
+                        ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding Category}"
+                        Title="{i18n:Translate CategoryPlaceholder}">
+
+                </Picker>
+
+                <ActivityIndicator
                 VerticalOptions="CenterAndExpand"
                 IsRunning="{Binding IsRunning}">
                 
