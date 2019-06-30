@@ -81,7 +81,7 @@ namespace Kapta
                 Settings.UserASP = JsonConvert.SerializeObject(userASP);
             }
 
-            MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
+            MainViewModel.GetInstance().Categories = new CategoriesViewModel();
             Application.Current.MainPage = new MasterPage();
         }
 

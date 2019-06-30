@@ -24,7 +24,7 @@ namespace Kapta.Categorias
         private async void GotoCategory()
         {
 
-                MainViewModel.GetInstance().Exercises = new ExercisesViewModel();// (this);
+                MainViewModel.GetInstance().Exercises = new ExercisesViewModel(this);// (this);
                 await App.Navigator.PushAsync(new ExercisesPage());
            
         }

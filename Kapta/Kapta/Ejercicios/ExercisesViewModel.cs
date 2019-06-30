@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Kapta.Categorias;
 using Kapta.Common.Models;
 using Kapta.Herramientas.Helpers;
 using Kapta.Herramientas.Services;
@@ -29,6 +30,12 @@ namespace Kapta.Ejercicios
 
         #region Properties
 
+        public Category Category
+        {
+            get;
+            set;
+        }
+
         public string Filter
         {
             get
@@ -57,24 +64,25 @@ namespace Kapta.Ejercicios
         #endregion
 
         #region Constructors
-        public ExercisesViewModel()
+
+        public ExercisesViewModel(Category category)
         {
             instance = this;
+            this.Category = category;
             this.apiService = new APIService();
             this.dataService = new DataService();
             this.LoadExercises();
+          
         }
         #endregion
 
         #region Singleton
         private static ExercisesViewModel instance;
+        
 
         public static ExercisesViewModel GetInstance()
         {
-            if (instance == null)
-            {
-                return new ExercisesViewModel();
-            }
+           
             return instance;
         }
 
@@ -83,6 +91,24 @@ namespace Kapta.Ejercicios
         #region Methods
         private async void LoadExercises()
         {
+            this.IsRefreshing = true;
+
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+                return;
+            }
+
+            var answer = await this.LoadExercisesFromAPI();
+            if (answer)
+            {
+                this.RefreshList();
+            }
+
+            this.IsRefreshing = false;
+            /*
             this.IsRefreshing = true;
 
             var connection = await this.apiService.CheckConnection();
@@ -124,10 +150,11 @@ namespace Kapta.Ejercicios
 
             this.MyExercises = (List<Exercise>)response.Result;
             */
+            /*
             this.RefreshList();
             
             this.IsRefreshing = false;
-
+            */
         }
 
         private async Task LoadExercisesFromDB()
@@ -146,8 +173,7 @@ namespace Kapta.Ejercicios
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlExercisesController"].ToString();
-
-            var response = await this.apiService.GetList<Exercise>(url, prefix, controller, Settings.TokenType, Settings.AccessToken);
+            var response = await this.apiService.GetList<Exercise>(url, prefix, controller, this.Category.CategoryId, Settings.TokenType, Settings.AccessToken);
             if (!response.IsSuccess)
             {
                 return false;

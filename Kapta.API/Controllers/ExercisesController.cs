@@ -31,13 +31,14 @@
         [ResponseType(typeof(Exercise))]
         public async Task<IHttpActionResult> GetExercise(int id)
         {
-            Exercise exercise = await db.Exercises.FindAsync(id);
-            if (exercise == null)
+            var exercises = await this.db.Exercises.Where(p => p.CategoryId == id).ToListAsync();
+            /*
+            if (exercises == null)
             {
                 return NotFound();
             }
-
-            return Ok(exercise);
+            */
+            return Ok(exercises);
         }
 
         // PUT: api/Exercises/5
