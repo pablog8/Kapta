@@ -34,7 +34,7 @@ namespace Kapta.Common.Models
                     return "noproduct";
                 }
 
-                return $"https://kaptabackend.azurewebsites.net{this.ImagePath.Substring(1)}";
+                return $"http://kaptabackend.azurewebsites.net{this.ImagePath.Substring(1)}";
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿namespace Kapta
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Categorias;
     using Kapta.Common.Models;
     using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
@@ -16,6 +17,10 @@
     {
         #region Properties
         public LoginViewModel Login { get; set; }
+
+        public CategoriesViewModel Categories { get; set; }
+
+        //public CategoriesViewModelUser Categoriess { get; set; }
 
         public EditExerciseViewModel EditExercise { get; set; }
 

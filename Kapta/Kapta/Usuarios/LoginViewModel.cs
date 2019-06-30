@@ -1,6 +1,7 @@
 ﻿namespace Kapta.Usuarios
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Categorias;
     using Kapta.Common.Models;
     using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
@@ -149,7 +150,7 @@
             }
 
 
-            MainViewModel.GetInstance().Exercises = new ExercisesViewModel();
+            MainViewModel.GetInstance().Categories = new CategoriesViewModel();
             Application.Current.MainPage = new MasterPage();
             this.IsRunning = false;
             this.IsEnabled = true;

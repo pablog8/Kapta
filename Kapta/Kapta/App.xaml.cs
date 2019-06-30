@@ -1,4 +1,5 @@
-﻿using Kapta.Common.Models;
+﻿using Kapta.Categorias;
+using Kapta.Common.Models;
 using Kapta.Ejercicios;
 using Kapta.Herramientas.Helpers;
 using Kapta.Herramientas.Services;
@@ -32,7 +33,7 @@ namespace Kapta
                     mainViewModel.UserASP = JsonConvert.DeserializeObject<MyUserASP>(Settings.UserASP);
                 }
 
-                mainViewModel.Exercises = new ExercisesViewModel();
+                mainViewModel.Categories = new CategoriesViewModel();
                 this.MainPage = new MasterPage();
             }
             else
