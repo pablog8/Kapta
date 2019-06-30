@@ -3,6 +3,7 @@
     using GalaSoft.MvvmLight.Command;
     using Kapta.Categorias;
     using Kapta.Contacto;
+    using Kapta.Deportistas;
     using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
     using Kapta.Usuarios;
