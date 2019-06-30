@@ -11,7 +11,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage BarBackgroundColor="Navy" x:Name="Navigator">
             <x:Arguments>
-                <pages:Categorias.CategoriesPage/>
+                <pages:Presentation/>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

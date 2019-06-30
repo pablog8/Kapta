@@ -21,11 +21,18 @@
 
         public CategoriesViewModel Categories { get; set; }
 
-        //public CategoriesViewModelUser Categoriess { get; set; }
+
+        public VideosViewModel Videos { get; set; }
+
+        public CategoriesViewModelUser Categoriess { get; set; }
 
         public EditExerciseViewModel EditExercise { get; set; }
 
+        public EditExerciseMessageViewModel EditProductt { get; set; }
+
         public ExercisesViewModel Exercises { get; set; }
+
+        public ExercisesViewModelUser Exercisess { get; set; }
 
         public AddExerciseViewModel AddExercise { get; set; }
 

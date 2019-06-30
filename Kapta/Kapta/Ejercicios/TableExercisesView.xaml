@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Ejercicios.TableExercisesView"
+             Title="Tabla de Ejercicios">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="nuevo" Icon="ic_action_add_circle.png">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout
+            
+            
+            Padding="5">
+                <Label x:Name="labelTabla"
+                       Font="24"
+                       TextColor="Black"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+
+                <ListView x:Name="listaListView"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="False">
+
+                    <!--HasUnevenRows="True" Para dimensionar automáticamente la altura de fila-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <!-- ponemos * para que sea el ancho disponible por defecto-->
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                            Grid.Column="0"
+                                            Source="logotipokap"
+                                             WidthRequest="100">
+
+
+                                    </Image>
+                                    <StackLayout
+                                            Grid.Column="1"
+                                            VerticalOptions="Center">
+                                        <Label
+                                                FontAttributes="Bold"
+                                    
+                                         Text="{Binding Nombreejercicio}">
+                                        </Label>
+                                        <!--<Label
+                                    
+                                         Text="{Binding Descripcion}">
+
+                                            </Label>-->
+
+
+                                    </StackLayout>
+
+                                    <Image
+                                    Grid.Column="3"
+                                    Source="ic_chevron_right"
+                                    VerticalOptions="Center">
+
+                                    </Image>
+                                </Grid>
+
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button x:Name="enviaremail"
+                                Image="email"
+                            Text="Enviar tabla por email"
+                            BackgroundColor="Navy"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" />
+                    <!--<Button x:Name="nuevo"
+                            Text="Agregar Lesión"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" /> -->
+
+
+                </StackLayout>
+            </StackLayout>
+
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

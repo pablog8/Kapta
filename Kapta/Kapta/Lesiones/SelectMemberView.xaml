@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Lesiones.SelectMemberView">
+    <ContentPage.Content>
+        <StackLayout Margin="20,20">
+            <!-- <controls:BindableRadioGroup x:Name="botonmiembro"/> -->
+            <Label Text="Elige donde se sitúa la lesión" TextColor="Black" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Picker x:Name="pickermiembro" SelectedIndexChanged="eventopickermiembro" Title="Selecciona el miembro"></Picker>
+
+            <Image x:Name="imgmiembro"/>
+            <Button x:Name="botonsiguiente" Text="Siguiente" Clicked="EventoBoton" BackgroundColor="SeaGreen" TextColor="White" IsVisible="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

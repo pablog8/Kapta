@@ -26,6 +26,8 @@ namespace Kapta.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Kapta.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Kapta.Droid.Resource.String.Hello;
 			global::Xamarin.Auth.Resource.Animation.slide_in_right = global::Kapta.Droid.Resource.Animation.slide_in_right;
 			global::Xamarin.Auth.Resource.Animation.slide_out_left = global::Kapta.Droid.Resource.Animation.slide_out_left;
 			global::Xamarin.Auth.Resource.Boolean.abc_action_bar_embed_tabs = global::Kapta.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
@@ -3769,6 +3771,12 @@ namespace Kapta.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f080040
+			public const int ApplicationName = 2131230784;
+			
+			// aapt resource value: 0x7f08003f
+			public const int Hello = 2131230783;
 			
 			// aapt resource value: 0x7f080016
 			public const int abc_action_bar_home_description = 2131230742;

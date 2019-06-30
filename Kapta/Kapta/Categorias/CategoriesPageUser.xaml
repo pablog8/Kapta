@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:i18n="clr-namespace:Sales.Helpers"
-             x:Class="Kapta.Eje rcicios.VideosPage"
+             xmlns:i18n="clr-namespace:Kapta.Herramientas.Helpers"
+             x:Class="Kapta.Categorias.CategoriesPageUser"
              BackgroundColor="Silver"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Listado de Vídeos">
+             Title="Seleccione la Categoría">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding Videos}"
+            BindingContext="{Binding Categoriess}"
             Padding="5">
             <SearchBar
                 BackgroundColor="Transparent"
@@ -18,11 +18,12 @@
                 Text="{Binding Filter}">
             </SearchBar>
             <ListView
+   
                 BackgroundColor="Transparent"
                 HasUnevenRows="True"
                 IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
-                ItemsSource="{Binding Videos}"
+                ItemsSource="{Binding Categories}"
                 RefreshCommand="{Binding RefreshCommand}"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
@@ -50,7 +51,7 @@
                                         Grid.Column="1"
                                         FontAttributes="Bold"
                                         FontSize="Medium"
-                                        Text="{Binding NombreVideo}"
+                                        Text="{Binding Description}"
                                         VerticalOptions="Center">
                                     </Label>
                                     <Image

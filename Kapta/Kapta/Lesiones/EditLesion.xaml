@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Lesiones.EditLesion"
+             Title="Editar Lesión">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Lugar " FontAttributes="Bold" FontSize="Medium"></Label>
+            <Label x:Name="pickerlugar" FontSize="Small"></Label>
+            <Label Text="Tipo " FontAttributes="Bold" FontSize="Medium"></Label>
+            <Label x:Name="pickertipo" FontSize="Small"></Label>
+            <Label Text="Número de Lesiones" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Entry x:Name="numeroLesionesEntry"
+                  Placeholder="Nº lesiones"
+                   Keyboard="Numeric" ></Entry>
+            <Button x:Name="actualizarlesion" Text="Actualizar nº lesiones" TextColor="White" BackgroundColor="Teal"></Button>
+            <Button x:Name="borrarlesion" Text="Eliminar lesion" TextColor="White" BackgroundColor="Red"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

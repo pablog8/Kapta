@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Lesiones.LesionesView"
+             Title="Cuadro de Lesiones">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="nuevo" Icon="ic_action_add_circle.png">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout>
+
+                <Label x:Name="labelLesiones"
+                       Font="24"
+                       TextColor="Black"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+
+
+
+                <ListView x:Name="listaListView" Margin="10,10" SeparatorColor="AliceBlue" />
+                <StackLayout Orientation="Horizontal">
+
+                    <Button x:Name="enviartabla"
+                            Image="tabla" 
+                            Text="Tabla personalizada"
+                            BackgroundColor="Navy"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" />
+                    <!--<Button x:Name="nuevo"
+                            Text="Agregar Lesión"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" /> -->
+
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

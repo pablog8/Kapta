@@ -1,4 +1,4 @@
-﻿//using SQLite.Net.Attributes;
+﻿using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,7 @@ namespace Kapta.Deportistas
 {
     public class Deportista
     {
-       // [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int IDDeportista { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }

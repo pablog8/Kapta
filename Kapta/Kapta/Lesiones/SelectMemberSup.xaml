@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Lesiones.SelectMemberSup">
+    <ContentPage.Content>
+        <StackLayout Margin="20,20">
+            <Label Text="LUGAR " FontAttributes="Bold" FontSize="Medium" TextColor="Black"></Label>
+            <Picker x:Name="pickerlugar" SelectedIndexChanged="eventopickerlugar" Title="Selecciona el lugar"></Picker>
+            <Label Text="TIPO " FontAttributes="Bold" FontSize="Medium" TextColor="Black"></Label>
+            <Picker x:Name="pickertipo" Title="Selecciona el tipo"></Picker>
+            <Label Text="NUMERO DE LESIONES " FontAttributes="Bold" FontSize="Medium" TextColor="Black"></Label>
+            <Entry x:Name="numeroLesionesEntry"
+                  Placeholder="Nº lesiones"
+                   Keyboard="Numeric" ></Entry>
+            <Button x:Name="Agregarlesion" Text="agregarlesion" BackgroundColor="SeaGreen" TextColor="White"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

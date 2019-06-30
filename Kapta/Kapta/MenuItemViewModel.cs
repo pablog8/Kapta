@@ -1,7 +1,9 @@
 ﻿namespace Kapta
 {
     using GalaSoft.MvvmLight.Command;
+    using Kapta.Categorias;
     using Kapta.Contacto;
+    using Kapta.Ejercicios;
     using Kapta.Herramientas.Helpers;
     using Kapta.Usuarios;
     using System;
@@ -76,7 +78,7 @@
 
             await App.Navigator.PushAsync(new AthletePage(MainViewModel.GetInstance().UserASP.Email));
 
-        }
+        }*/
         else if (this.PageName == "Exercises")
         {
             //para que oculte la master page
@@ -99,7 +101,7 @@
             await App.Navigator.PushAsync(new VideosPage());
 
         }
-        */
+        
         else if (this.PageName == "Financiacion")
         {
             //para que oculte la master page

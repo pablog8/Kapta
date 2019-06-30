@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Ejercicios.EditExercise">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10" Spacing="10">
+                <Label Text="Nombre del Ejercicio" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"></Label>
+                <Label x:Name="nombreejercicioEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                        />
+                <Label Text="Descripción" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"></Label>
+                <Label x:Name="descripcionEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                        />
+                <Label Text="Comentario personal" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Editor x:Name="comentarioEntry"
+                        />
+
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="actualizarButton"
+                            Text="Actualizar"
+                            BackgroundColor="Teal"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" />
+                    <Button x:Name="borrarButton"
+                            Text="Borrar"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" />
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
