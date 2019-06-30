@@ -16,6 +16,7 @@
         }
 
         public DbSet<Common.Models.Category> Categories { get; set; }
+        public DbSet<Common.Models.Video> Videos { get; set; }
         public DbSet<Common.Models.Exercise> Exercises { get; set; }
     }
 }
