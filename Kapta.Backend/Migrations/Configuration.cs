@@ -11,7 +11,6 @@ namespace Kapta.Backend.Migrations
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "Kapta.Backend.Models.LocalDataContext";
         }
 
         protected override void Seed(Kapta.Backend.Models.LocalDataContext context)

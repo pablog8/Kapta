@@ -33,8 +33,12 @@ namespace Kapta.Common.Models
         [DataType(DataType.Date)]
         public DateTime PublishOn { get; set; }
 
+        [StringLength(128)]
+        public string UserId { get; set; }
+        /*
         [JsonIgnore]
         public virtual Category Category { get; set; }
+        */
         // public Decimal Price { get; set; }
         // public bool IsAvailable { get; set; }
         //para tener atributos que no esten en la base de datos pero si en el modelo
