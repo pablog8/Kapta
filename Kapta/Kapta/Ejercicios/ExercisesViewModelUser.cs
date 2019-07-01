@@ -85,7 +85,7 @@
             this.apiService = new APIService();
             this.Category = category;
             this.dataService = new DataService();
-            this.LoadProducts();
+            this.LoadExercises();
 
         }
         #endregion
@@ -146,7 +146,7 @@
             this.IsRefreshing = false;
         }
         */
-        private async void LoadProducts()
+        private async void LoadExercises()
         {
             this.IsRefreshing = true;
 
@@ -158,7 +158,7 @@
                 return;
             }
 
-            var answer = await this.LoadProductsFromAPI();
+            var answer = await this.LoadExercisesFromAPI();
             if (answer)
             {
                 this.RefreshList();
@@ -168,12 +168,12 @@
         }
 
 
-        private async Task LoadProductsFromDB()
+        private async Task LoadExercisesFromDB()
         {
             this.MyExercises = await this.dataService.GetAllExercises();
         }
 
-        private async Task SaveProductsToDB()
+        private async Task SaveExercisesToDB()
         {
             await this.dataService.DeleteAllExercises();
             this.dataService.Insert(this.MyExercises);
@@ -203,11 +203,11 @@
             return true;
         }
     */
-        private async Task<bool> LoadProductsFromAPI()
+        private async Task<bool> LoadExercisesFromAPI()
         {
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
-            var controller = Application.Current.Resources["UrlProductsController"].ToString();
+            var controller = Application.Current.Resources["UrlExercisesController"].ToString();
             var response = await this.apiService.GetList<Exercise>(url, prefix, controller, this.Category.CategoryId, Settings.TokenType, Settings.AccessToken);
             if (!response.IsSuccess)
             {
@@ -224,7 +224,7 @@
             //si no hay filtro en la lupa
             if (string.IsNullOrEmpty(this.Filter))
             {
-                var myListProductItemViewModel = this.MyExercises.Select(p => new ExerciseItemViewModelUser(this.deportistaa)
+                var myListExerciseItemViewModel = this.MyExercises.Select(p => new ExerciseItemViewModelUser(this.deportistaa)
                 {
                     Name = p.Name,
                     Description = p.Description,
@@ -241,12 +241,12 @@
                 });
 
                 this.Exercises = new ObservableCollection<ExerciseItemViewModelUser>(
-                    myListProductItemViewModel.OrderBy(p => p.Description));
+                    myListExerciseItemViewModel.OrderBy(p => p.Description));
             }
             //si hay texto en la lupa
             else
             {
-                var myListProductItemViewModel = this.MyExercises.Select(p => new ExerciseItemViewModelUser(this.deportistaa)
+                var myListExerciseItemViewModel = this.MyExercises.Select(p => new ExerciseItemViewModelUser(this.deportistaa)
                 {
                     Name = p.Name,
                     Description = p.Description,
@@ -264,7 +264,7 @@
                 }).Where(p => p.Description.ToLower().Contains(this.Filter.ToLower())).ToList();
 
                 this.Exercises = new ObservableCollection<ExerciseItemViewModelUser>(
-                    myListProductItemViewModel.OrderBy(p => p.Description));
+                    myListExerciseItemViewModel.OrderBy(p => p.Description));
 
             }
             //Convierto la lista de los Products a ProductItemViewModel
@@ -279,7 +279,7 @@
         {
             get
             {
-                return new RelayCommand(LoadProducts);
+                return new RelayCommand(LoadExercises);
             }
         }
         //carga los productos

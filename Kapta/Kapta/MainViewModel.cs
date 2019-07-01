@@ -28,7 +28,7 @@
 
         public EditExerciseViewModel EditExercise { get; set; }
 
-        public EditExerciseMessageViewModel EditProductt { get; set; }
+        public EditExerciseMessageViewModel EditExercisee { get; set; }
 
         public ExercisesViewModel Exercises { get; set; }
 

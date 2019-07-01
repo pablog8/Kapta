@@ -293,14 +293,14 @@
             */
             //por si el usuario cambia la categoría
             //this.Product.CategoryId = this.Category.CategoryId;
-            string descripcionproducto = this.exercise.Description;
+            string descripcionejercicio = this.exercise.Description;
             string nombreejercicio = this.exercise.Name;
             string categoriaa = this.category.Description;
             //creamos el deportista
             var ejercicio = new TablaEjercicios
             {
                 Nombreejercicio = nombreejercicio,
-                Descripcion = descripcionproducto,
+                Descripcion = descripcionejercicio,
                 clavedeportista = deportistaa.IDDeportista,
 
                 // Salario = decimal.Parse(salarioEntry.Text),

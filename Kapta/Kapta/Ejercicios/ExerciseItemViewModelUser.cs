@@ -31,21 +31,21 @@
 
 
         #region Commands
-        public ICommand EditProductCommand
+        public ICommand EditExerciseCommand
         {
             get
             {
-                return new RelayCommand(EditProduct);
+                return new RelayCommand(EditExercise);
             }
         }
 
-        private async void EditProduct()
+        private async void EditExercise()
         {
 
             if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
             {
                 //Creamos una instancia y ligarlo a la viewmodel
-                MainViewModel.GetInstance().EditProductt = new EditExerciseMessageViewModel(this, deportistaa);
+                MainViewModel.GetInstance().EditExercisee = new EditExerciseMessageViewModel(this, deportistaa);
                 await App.Navigator.PushAsync(new EditProductExercise());
             }
             else
@@ -62,15 +62,15 @@
 
         }
 
-        public ICommand DeleteProductCommand
+        public ICommand DeleteExerciseCommand
         {
             get
             {
-                return new RelayCommand(DeleteProduct);
+                return new RelayCommand(DeleteExercise);
             }
         }
 
-        private async void DeleteProduct()
+        private async void DeleteExercise()
         {
             var answer = await Application.Current.MainPage.DisplayAlert(
                 Languages.Confirm,
@@ -98,7 +98,7 @@
 
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
 
-            var controller = Application.Current.Resources["UrlProductsController"].ToString();
+            var controller = Application.Current.Resources["UrlExercisesController"].ToString();
 
             var response = await this.apiService.Delete(url, prefix, controller, this.ExerciseId, Settings.TokenType, Settings.AccessToken);
 
@@ -111,17 +111,17 @@
             }
 
             //hay que actualizar la lista, llamamos a  SINGLETON
-            var productsViewModel = ExercisesViewModel.GetInstance();
+            var exercisesViewModel = ExercisesViewModel.GetInstance();
 
             //buscamos el producto en la lista y lo eliminamos
-            var deletedProduct = productsViewModel.MyExercises.Where(p => p.ExerciseId == this.ExerciseId).FirstOrDefault();
+            var deletedExercise = exercisesViewModel.MyExercises.Where(p => p.ExerciseId == this.ExerciseId).FirstOrDefault();
 
             //si encontramos el producto
-            if (deletedProduct != null)
+            if (deletedExercise != null)
             {
-                productsViewModel.MyExercises.Remove(deletedProduct);
+                exercisesViewModel.MyExercises.Remove(deletedExercise);
             }
-            productsViewModel.RefreshList();
+            exercisesViewModel.RefreshList();
         }
 
         #endregion

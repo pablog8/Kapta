@@ -7,7 +7,7 @@
              Title="Añadir ejercicio">
     <ContentPage.Content>
         <ScrollView
-            BindingContext="{Binding EditProductt}">
+            BindingContext="{Binding EditExercisee}">
 
             <StackLayout          
             Padding="15" Spacing="10">

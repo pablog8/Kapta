@@ -27,7 +27,7 @@
                 HasUnevenRows="True"
                 IsRefreshing="{Binding IsRefreshing}"
                 IsPullToRefreshEnabled="True"
-                ItemsSource="{Binding Products}"
+                ItemsSource="{Binding Exercises}"
                 RefreshCommand="{Binding RefreshCommand}">
 
                 <!--HasUnevenRows="True" Para dimensionar automáticamente la altura de fila-->
