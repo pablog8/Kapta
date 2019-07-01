@@ -1,4 +1,5 @@
-﻿using Kapta.Herramientas.Interfaces;
+﻿using Kapta.Ejercicios;
+using Kapta.Herramientas.Interfaces;
 using Kapta.Herramientas.Services;
 using Kapta.Lesiones;
 using Sales.Lesiones;
@@ -39,7 +40,7 @@ namespace Kapta.Deportistas
             actualizarButton.Clicked += ActualizarButton_Clicked;
             borrarButton.Clicked += BorrarButton_Clicked;
             lesionesButton.Clicked += LesionesButton_Clicked;
-
+            ejerciciosButton.Clicked += EjerciciosButton_Clicked;
 
             // listaaListView.ItemTemplate = new DataTemplate(typeof(Lesioncell));
             // listaaListView.RowHeight = 50;
@@ -74,6 +75,11 @@ namespace Kapta.Deportistas
         private void LesionesButton_Clicked(object sender, EventArgs e)
         {
             ((NavigationPage)this.Parent).PushAsync(new LesionesView(this.deportista));
+        }
+        private void EjerciciosButton_Clicked(object sender, EventArgs e)
+        {
+            
+            ((NavigationPage)this.Parent).PushAsync(new TableExercisesView(this.deportista));
         }
 
         private async void ActualizarButton_Clicked(object sender, EventArgs e)
