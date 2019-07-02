@@ -83,7 +83,7 @@
                 Name = view.Name,
                 Description = view.Description,
                 ImagePath = pic,
-                //CategoryId = view.CategoryId,
+                CategoryId = view.CategoryId,
                 //IsAvailable = view.IsAvailable,
                 //Price = view.Price,
                 ExerciseId = view.ExerciseId,
@@ -114,7 +114,7 @@
             {
                 Name = exercise.Name,
                 Description = exercise.Description,
-                //CategoryId = product.CategoryId,
+                CategoryId = exercise.CategoryId,
                 ImagePath = exercise.ImagePath,
                 //IsAvailable = product.IsAvailable,
                 //Price = product.Price,

@@ -7,7 +7,7 @@
 <h2>Categoías</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Crear Nuevo", "Create", new { }, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -23,6 +23,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
