@@ -20,9 +20,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
-        <th>
+        @* <th>
             @Html.DisplayNameFor(model => model.Description)
-        </th>
+        </th>*@
+
         <th>
             @Html.DisplayNameFor(model => model.ImagePath)
         </th>
@@ -43,9 +44,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Category.Description)
         </td>
+        @*
+
         <td>
             @Html.DisplayFor(modelItem => item.Description)
-        </td>
+        </td>*@
+
         <td>
             @if (!string.IsNullOrEmpty(item.ImagePath))
         {

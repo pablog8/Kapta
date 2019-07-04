@@ -33,6 +33,7 @@ namespace Kapta.Deportistas
             nombresEntry.Text = deportista.Nombres;
             apellidosEntry.Text = deportista.Apellidos;
             emailEntry.Text = deportista.Email;
+            telefonoEntry.Text = deportista.Telefono;
             fechaContratoDatePicker.Date = deportista.FechaNacimiento;
             //salarioEntry.Text = deportista.Salario.ToString();
             //activoSwitch.IsToggled = deportista.Activo;
@@ -40,7 +41,7 @@ namespace Kapta.Deportistas
             actualizarButton.Clicked += ActualizarButton_Clicked;
             borrarButton.Clicked += BorrarButton_Clicked;
             lesionesButton.Clicked += LesionesButton_Clicked;
-            ejerciciosButton.Clicked += EjerciciosButton_Clicked;
+            //ejerciciosButton.Clicked += EjerciciosButton_Clicked;
 
             // listaaListView.ItemTemplate = new DataTemplate(typeof(Lesioncell));
             // listaaListView.RowHeight = 50;
@@ -122,6 +123,7 @@ namespace Kapta.Deportistas
             deportista.Nombres = nombresEntry.Text;
             deportista.Apellidos = apellidosEntry.Text;
             deportista.Email = emailEntry.Text;
+            deportista.Telefono = telefonoEntry.Text;
             // deportista.Salario = decimal.Parse(salarioEntry.Text);
             deportista.FechaNacimiento = fechaContratoDatePicker.Date;
             //deportista.Activo = activoSwitch.IsToggled;

@@ -4,7 +4,7 @@
               xmlns:i18n="clr-namespace:Kapta.Herramientas.Helpers"
              x:Class="Kapta.Ejercicios.EditExerciseUser"
               BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Editar ejercicio">
+             Title="Datos del ejercicio">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding EditExercise}">

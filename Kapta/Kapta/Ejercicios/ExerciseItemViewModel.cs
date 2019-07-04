@@ -40,8 +40,23 @@
 
         private async void EditExercise()
         {
+            /*
             MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
-            await App.Navigator.PushAsync(new EditExercisePage());
+            await App.Navigator.PushAsync(new EditExercisePage());*/
+            if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
+            {
+                //Creamos una instancia y ligarlo a la viewmodel
+                MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
+                await App.Navigator.PushAsync(new EditExercisePage());
+            }
+            else
+            {
+                //Creamos una instancia y ligarlo a la viewmodel
+                MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
+
+                //tiene que apilar otra pagina
+                await App.Navigator.PushAsync(new EditExerciseUser());
+            }
             /*
             if (MainViewModel.GetInstance().UserASP.Email == "prueba3@usal.es")
             {

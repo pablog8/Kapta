@@ -61,9 +61,9 @@ namespace Kapta.Deportistas
             {
 
 
-                var fromAddress = new MailAddress("pablogf21096@gmail.com", "KAPTA");
+                var fromAddress = new MailAddress("pablo.kapta@gmail.com", "KAPTA");
                 var toAddress = new MailAddress(email, nombre);
-                const string fromPassword = "Pasesionthebest";
+                const string fromPassword = "proyectokapta";
                 const string subject = "EQUIPO KAPTA";
                 const string body = "¡Gracias por usar nuestra aplicación!";
 
@@ -105,6 +105,7 @@ namespace Kapta.Deportistas
                 Nombres = nombresEntry.Text,
                 Apellidos = apellidosEntry.Text,
                 Email = emailEntry.Text,
+                Telefono = telefonoEntry.Text,
                 FechaNacimiento = fechaContratoDatePicker.Date,
                 IdUser = MainViewModel.GetInstance().UserASP.Email,
 
@@ -121,6 +122,7 @@ namespace Kapta.Deportistas
             nombresEntry.Text = string.Empty;
             apellidosEntry.Text = string.Empty;
             emailEntry.Text = string.Empty;
+            telefonoEntry.Text = string.Empty;
             // salarioEntry.Text = string.Empty;
             fechaContratoDatePicker.Date = DateTime.Now;
             //activoSwitch.IsToggled = true;

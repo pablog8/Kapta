@@ -17,7 +17,7 @@ namespace Kapta.Common.Models
         public int CategoryId { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(200)]
         public string Name { get; set; }
 
         [Display(Name = "Descripción")]

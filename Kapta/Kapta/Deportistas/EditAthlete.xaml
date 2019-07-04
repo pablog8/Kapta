@@ -20,7 +20,10 @@
                 <Label Text="Email" FontAttributes="Bold"  FontSize="Medium"/>
                 <Entry x:Name="emailEntry"
                     Placeholder="Email" />
-
+                <Label Text="Teléfono" FontAttributes="Bold"  FontSize="Medium"/>
+                <Entry x:Name="telefonoEntry"
+                  Placeholder="Teléfono"
+            Keyboard="Numeric" />
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Fecha Nacimiento "
                             VerticalOptions="Center" />
@@ -49,13 +52,14 @@
 
 
                 </StackLayout>
+                <!--
                 <Button x:Name="ejerciciosButton"
                         Image="tabla"
                         Text="Gestión de Ejercicios"
                         BackgroundColor="Navy"
                         TextColor="White" 
                         HorizontalOptions="FillAndExpand"
-                        VerticalOptions="EndAndExpand" />
+                        VerticalOptions="EndAndExpand" /> -->
                 <!--<ListView x:Name="listaaListView" /> -->
                 <Button x:Name="lesionesButton"
                         Image="lesiones"

@@ -17,15 +17,23 @@
                         <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
                     </Image.GestureRecognizers>
                 </Image>
-                    
 
-                <Label
+                <!-- <Label
                     FontSize="Small"
                     HorizontalOptions="Center"
                     Text="{i18n:Translate ChangeImage}">
                     
-                </Label>
-                <Grid>
+                </Label>-->
+                <Image
+                    	Aspect="AspectFit"
+                    	HeightRequest="70"
+                    	Source="pencil"
+                    	WidthRequest="70">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <!-- <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
@@ -98,7 +106,89 @@
                 TextColor="White">
                 
             </Button>
-        </StackLayout>
+            -->
+                <Label
+                         TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="{i18n:Translate Name}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+
+                </Label>
+                <Editor
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding Exercise.Name}"
+                        
+                >
+                    <!--Placeholder="{i18n:Translate DescriptionPlaceholder}"-->
+                </Editor>
+                <!--<Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                Text="{i18n:Translate Price}"
+                        VerticalOptions="Center">
+
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                Keyboard="Numeric"
+                        Text="{Binding Product.Price}"
+                Placeholder="{i18n:Translate PricePlaceholder}">
+
+                    </Entry>-->
+                <Label
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="{i18n:Translate Description}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                </Label>
+                <Editor
+                        
+                        Text="{Binding Exercise.Description}"
+                        VerticalOptions="FillAndExpand">
+                </Editor>
+
+                <Label
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="{i18n:Translate Category}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                </Label>
+                <Picker
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        ItemDisplayBinding="{Binding Description}"
+                        ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding Category}"
+                        Title="{i18n:Translate CategoryPlaceholder}">
+                </Picker>
+                <ActivityIndicator
+                VerticalOptions="CenterAndExpand"
+                IsRunning="{Binding IsRunning}">
+
+                </ActivityIndicator>
+
+                <Button
+                BackgroundColor="Navy"
+                BorderRadius="23"
+                Command="{Binding SaveCommand}"
+                HeightRequest="46"
+                IsEnabled="{Binding IsEnabled}"
+                Text="{i18n:Translate Save}"
+                TextColor="White">
+
+                </Button>
+
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

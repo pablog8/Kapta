@@ -22,7 +22,10 @@
             <!-- Cool <Entry x:Name="salarioEntry"
                   Placeholder="Salario"
             Keyboard="Numeric" />comment -->
-
+            <Label Text="Teléfono" FontAttributes="Bold"  FontSize="Medium"/>
+            <Entry x:Name="telefonoEntry"
+                  Placeholder="Teléfono"
+            Keyboard="Numeric" />
             <StackLayout Orientation="Horizontal">
                 <Label Text="Fecha Nacimiento: "
                    VerticalOptions="Center" />
