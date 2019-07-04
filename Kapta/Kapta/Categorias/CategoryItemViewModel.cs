@@ -23,7 +23,7 @@ namespace Kapta.Categorias
 
         private async void GotoCategory()
         {
-            if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
+            if (MainViewModel.GetInstance().UserASP.Email == "pablo.kapta@gmail.com")
             {
                 MainViewModel.GetInstance().Exercises= new ExercisesViewModel(this);// (this);
                 await App.Navigator.PushAsync(new ExercisesPage());

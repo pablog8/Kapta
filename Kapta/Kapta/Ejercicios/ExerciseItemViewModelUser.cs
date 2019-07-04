@@ -41,14 +41,10 @@
 
         private async void EditExercise()
         {
-
-            if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
-            {
-                //Creamos una instancia y ligarlo a la viewmodel
-                MainViewModel.GetInstance().EditExercisee = new EditExerciseMessageViewModel(this, deportistaa);
-                await App.Navigator.PushAsync(new EditProductExercise());
-            }
-            else
+            //accedemos a añadir ejercicio
+            MainViewModel.GetInstance().EditExercisee = new EditExerciseMessageViewModel(this, deportistaa);
+            await App.Navigator.PushAsync(new EditProductExercise());
+            /*  else
             {
                 //Creamos una instancia y ligarlo a la viewmodel
                 MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
@@ -57,7 +53,12 @@
                 await App.Navigator.PushAsync(new EditExerciseUser());
             }
 
-
+            if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
+            {
+                //Creamos una instancia y ligarlo a la viewmodel
+                MainViewModel.GetInstance().EditExercisee = new EditExerciseMessageViewModel(this, deportistaa);
+                await App.Navigator.PushAsync(new EditProductExercise());
+            }*/
 
 
         }

@@ -37,19 +37,20 @@ namespace Kapta.Categorias
 
         private async void GotoCategory()
         {
-
+            MainViewModel.GetInstance().Exercisess = new ExercisesViewModelUser(this, this.deportistaa);// (this);
+                                                                                                        // MainViewModel.GetInstance().Products = new ProductsViewModel(this);// (this);
+            await App.Navigator.PushAsync(new ExercisesUserExercise());
+            /*
             if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
             {
-                MainViewModel.GetInstance().Exercisess = new ExercisesViewModelUser(this, this.deportistaa);// (this);
-                                                                                                          // MainViewModel.GetInstance().Products = new ProductsViewModel(this);// (this);
-                await App.Navigator.PushAsync(new ExercisesUserExercise());
+              
             }
             else
             {
                 MainViewModel.GetInstance().Exercises = new ExercisesViewModel(this);// (this);
                 await App.Navigator.PushAsync(new ExercisesPageUser());
             }
-
+            */
 
 
 

@@ -74,9 +74,9 @@ namespace Kapta.Ejercicios
             {
 
 
-                var fromAddress = new MailAddress("pablogf21096@gmail.com", "KAPTA");
+                var fromAddress = new MailAddress("pablo.kapta@gmail.com", "KAPTA");
                 var toAddress = new MailAddress(deportistaa.Email, deportistaa.NombreCompleto);
-                const string fromPassword = "Pasesionthebest";
+                const string fromPassword = "proyectokapta";
                 const string subject = "EQUIPO KAPTA";
                 //string body = datitos;
 

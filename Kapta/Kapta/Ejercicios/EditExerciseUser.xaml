@@ -20,7 +20,7 @@
 
 
                 </Image>
-                <Image
+                <!-- <Image
                     	Aspect="AspectFit"
                     	HeightRequest="70"
                     	Source="pencil"
@@ -28,7 +28,8 @@
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
                     </Image.GestureRecognizers>
-                </Image>
+                </Image>-->
+               
 
                 <Label
                         TextColor="Black"

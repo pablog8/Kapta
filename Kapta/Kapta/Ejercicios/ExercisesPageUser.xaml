@@ -51,36 +51,29 @@
 
 
                                 </Image>
-                                <StackLayout
+                               
+                                    <Label
+                                          FontAttributes="Bold"
                                     Grid.Column="1"
+                                    Text="{Binding Name}"
                                     VerticalOptions="Center">
-                                    <Label
-                                         FontAttributes="Bold"
-                                    
-                                         Text="{Binding Name}">
                                     </Label>
-                                    <Label
+                                    <!--   <Label
                                     
                                          Text="{Binding Description}">
 
-                                    </Label>
+                                    </Label>-->
 
-                                </StackLayout>
+                                    <Image Source="ic_chevron_right"
+                                       VerticalOptions="Center"
+                                       Grid.Column="2">
+
+                                    </Image>
+                                
 
 
-                                <Label
-                                Grid.Column="2"
-                                HorizontalOptions="End"
-                                Text="{Binding Price, StringFormat='{0:C2}'}"
-                                VerticalOptions="Center">
-                                    <!-- Formato de moneda con dos decimales-->
-                                </Label>
-                                <Image
-                                    Grid.Column="3"
-                                    Source="ic_chevron_right"
-                                    VerticalOptions="Center">
-
-                                </Image>
+                                
+                      
                             </Grid>
 
                         </ViewCell>

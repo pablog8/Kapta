@@ -5,11 +5,12 @@
              x:Class="Kapta.Ejercicios.ExercisesUserExercise"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Seleccione un ejercicio">
-    <ContentPage.ToolbarItems>
+
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Icon="ic_action_add_circle.png" Command="{Binding AddExerciseCommand}">
 
         </ToolbarItem>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout
             

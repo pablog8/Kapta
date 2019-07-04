@@ -43,7 +43,7 @@
             /*
             MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
             await App.Navigator.PushAsync(new EditExercisePage());*/
-            if (MainViewModel.GetInstance().UserASP.Email == "pablo@gmail.com")
+            if (MainViewModel.GetInstance().UserASP.Email == "pablo.kapta@gmail.com")
             {
                 //Creamos una instancia y ligarlo a la viewmodel
                 MainViewModel.GetInstance().EditExercise = new EditExerciseViewModel(this);
