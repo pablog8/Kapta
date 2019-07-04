@@ -119,6 +119,7 @@ namespace Kapta.Deportistas
                 datos.InsertDeportista(deportista);
                 //listaListView.ItemsSource = datos.GetDeportistas();
             }
+            
             nombresEntry.Text = string.Empty;
             apellidosEntry.Text = string.Empty;
             emailEntry.Text = string.Empty;
@@ -127,10 +128,37 @@ namespace Kapta.Deportistas
             fechaContratoDatePicker.Date = DateTime.Now;
             //activoSwitch.IsToggled = true;
             DependencyService.Get<IMessage>().LongAlert("Deportista agregado");
+            PopUntilDestination(typeof(AthletePage));
             //await DisplayAlert("Confirmación", "Deportista agregado", "Aceptar");
             //  await Navigation.PushAsync(new Trabajo.HomePage());
 
 
+        }
+        void PopUntilDestination(Type DestinationPage)
+        {
+            int LeastFoundIndex = 0;
+
+            int PagesToRemove = 0;
+
+            for (int index = Navigation.NavigationStack.Count - 2; index > 0; index--)
+            {
+                if (Navigation.NavigationStack[index].GetType().Equals(DestinationPage))
+                {
+                    break;
+                }
+                else
+                {
+                    LeastFoundIndex = index;
+                    PagesToRemove++;
+                }
+            }
+
+            for (int index = 0; index < PagesToRemove; index++)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[LeastFoundIndex]);
+            }
+
+            Navigation.PopAsync();
         }
     }
 }

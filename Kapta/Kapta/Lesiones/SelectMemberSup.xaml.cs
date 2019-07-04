@@ -93,6 +93,30 @@ namespace Kapta.Lesiones
 
         private async void Agregarlesion_Clicked(object sender, EventArgs e)
         {
+            if (pickerlugar.SelectedItem == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   "Debe seleccionar el lugar de la lesión",
+                   "Aceptar");
+                return;
+            }
+            if (pickertipo.SelectedItem == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   "Debe seleccionar el tipo de lesión",
+                   "Aceptar");
+                return;
+            }
+            if (string.IsNullOrEmpty(this.numeroLesionesEntry.Text))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   "Debe seleccionar el número de lesiones",
+                   "Aceptar");
+                return;
+            }
             //creamos la lesion
             var lesion = new Lesion
             {
