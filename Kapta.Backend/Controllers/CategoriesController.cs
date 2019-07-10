@@ -9,7 +9,7 @@
     using Helpers;
     using Models;
 
-    [Authorize]
+    [Authorize(Users = "pablo.kapta@gmail.com")]
     public class CategoriesController : Controller
     {
         private LocalDataContext db = new LocalDataContext();

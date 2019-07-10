@@ -9,7 +9,7 @@
     using Helpers;
     using Models;
 
-    [Authorize]
+    [Authorize(Users = "pablo.kapta@gmail.com")]
     public class VideosController : Controller
     {
         private LocalDataContext db = new LocalDataContext();

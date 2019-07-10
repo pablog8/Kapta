@@ -13,7 +13,7 @@
     using Kapta.Common.Models;
     using Kapta.Backend.Helpers;
 
-    [Authorize]
+    [Authorize(Users = "pablo.kapta@gmail.com")]
     public class ExercisesController : Controller
     {
         //la base de datos es db
