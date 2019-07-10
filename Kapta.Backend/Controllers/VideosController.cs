@@ -9,7 +9,7 @@
     using Helpers;
     using Models;
 
-    [Authorize(Users = "pablo.kapta@gmail.com")]
+    [Authorize]
     public class VideosController : Controller
     {
         private LocalDataContext db = new LocalDataContext();
@@ -20,7 +20,7 @@
         }
 
 
-
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public ActionResult Create()
         {
             return View();
@@ -61,7 +61,7 @@
                 ImagePath = pic,
             };
         }
-
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -115,7 +115,7 @@
 
             return View(view);
         }
-
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)

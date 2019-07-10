@@ -13,7 +13,7 @@
     using Kapta.Common.Models;
     using Kapta.Backend.Helpers;
 
-    [Authorize(Users = "pablo.kapta@gmail.com")]
+    [Authorize]
     public class ExercisesController : Controller
     {
         //la base de datos es db
@@ -27,6 +27,7 @@
         }
 
         // GET: Exercises/Details/5
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,6 +43,7 @@
         }
 
         // GET: Exercises/Create
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public ActionResult Create()
         {
             return View();
@@ -93,6 +95,7 @@
         }
 
         // GET: Exercises/Edit/5
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -154,6 +157,7 @@
         }
 
         // GET: Exercises/Delete/5
+        [Authorize(Users = "pablo.kapta@gmail.com")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
