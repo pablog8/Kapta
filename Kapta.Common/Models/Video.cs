@@ -17,13 +17,17 @@ namespace Kapta.Common.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Nombre del Vídeo")]
         public string NombreVideo { get; set; }
 
+        [Display(Name = "Descripción")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
+        [Display(Name = "Link")]
         public string LinkVideo { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public string ImagePath { get; set; }
 
         public string ImageFullPath

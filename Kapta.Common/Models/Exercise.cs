@@ -13,11 +13,12 @@ namespace Kapta.Common.Models
     {
         [Key]
         public int ExerciseId { get; set; }
-
+        [Display(Name = "Id Categoría")]
         public int CategoryId { get; set; }
 
         [Required]
         [StringLength(200)]
+        [Display(Name = "Nombre")]
         public string Name { get; set; }
 
         [Display(Name = "Descripción")]
@@ -37,6 +38,7 @@ namespace Kapta.Common.Models
         public string UserId { get; set; }
         
         [JsonIgnore]
+        [Display(Name = "Categoría")]
         public virtual Category Category { get; set; }
         
         // public Decimal Price { get; set; }

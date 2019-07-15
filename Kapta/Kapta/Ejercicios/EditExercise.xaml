@@ -7,10 +7,12 @@
         <ScrollView>
             <StackLayout Padding="10" Spacing="10">
                 <Label Text="Nombre del Ejercicio" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"></Label>
-                <Label x:Name="nombreejercicioEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                <Editor x:Name="nombreejercicioEntry" 
                         />
+                <!--<Label x:Name="descripcionEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                        />-->
                 <Label Text="Descripción" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"></Label>
-                <Label x:Name="descripcionEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                <Editor x:Name="descripcionEntry" 
                         />
                 <Label Text="Comentario personal" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <Editor x:Name="comentarioEntry"

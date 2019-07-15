@@ -363,6 +363,7 @@
             await App.Navigator.PopAsync(false);
             await App.Navigator.PopAsync(false);
             await App.Navigator.PopAsync(false);
+            await App.Navigator.PopAsync(false);
             //PopUntilDestination(typeof(TableExercisesView));
 
         }

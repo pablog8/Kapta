@@ -13,13 +13,15 @@ namespace Kapta.Common.Models
     public class Category
     {
         [Key]
+        [Display(Name = "Id Categoría")]
         public int CategoryId { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Descripción")]
         public string Description { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public string ImagePath { get; set; }
 
         [JsonIgnore]

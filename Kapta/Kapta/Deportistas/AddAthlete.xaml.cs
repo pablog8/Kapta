@@ -80,7 +80,7 @@ namespace Kapta.Deportistas
                 using (var message = new MailMessage(fromAddress, toAddress)
                 {
                     Subject = subject,
-                    Body = "Hola " + nombresEntry.Text + " ¡Te acabas de dar de alta como deportista en KAPTA! Para más información visita nuestra App",
+                    Body = "Bienvenido " + nombresEntry.Text + ", "+ Environment.NewLine +  MainViewModel.GetInstance().UserFullName +" con email "+ MainViewModel.GetInstance().UserASP.UserName + " te acaba de dar de alta como deportista en KAPTA."+ Environment.NewLine +"Para más información visita nuestra App",
                 })
 
                 {

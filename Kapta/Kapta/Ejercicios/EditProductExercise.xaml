@@ -5,6 +5,8 @@
              x:Class="Kapta.Ejercicios.EditProductExercise"
               BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Añadir ejercicio">
+    <!-- Página de añadir ejercicio a la lista -->
+
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding EditExercisee}">

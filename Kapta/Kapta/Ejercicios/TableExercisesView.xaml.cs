@@ -53,15 +53,16 @@ namespace Kapta.Ejercicios
             using (var datos = new DataAccess())
             {
                 var datoss = datos.GetEjercicioDeportista(this.deportistaa.IDDeportista);
+                datitos = "LISTA DE EJERCICIOS mandada por " + MainViewModel.GetInstance().UserFullName + ": " + Environment.NewLine + Environment.NewLine;
                 foreach (var s in datoss)
                 {
                     vacio = 1;
-                    datitos = datitos + "*Ejercicio " + numejercicio + "*" + Environment.NewLine + s.Nombreejercicio + Environment.NewLine + "*Descripción*" + Environment.NewLine + s.Descripcion + Environment.NewLine;
+                    datitos = datitos + "*Ejercicio " + numejercicio + ":" + Environment.NewLine + s.Nombreejercicio + Environment.NewLine + "*Descripción:" + Environment.NewLine + s.Descripcion + Environment.NewLine;
                     if (s.ComentarioEjercicio != null)
                     {
-                        datitos = datitos + "*Comentario personal*" + Environment.NewLine + s.ComentarioEjercicio + Environment.NewLine;
+                        datitos = datitos + "*Comentario personal:" + Environment.NewLine + s.ComentarioEjercicio + Environment.NewLine;
                     }
-                    datitos = datitos + Environment.NewLine;
+                    datitos = datitos + Environment.NewLine + Environment.NewLine;
                     numejercicio++;
                 }
             }
@@ -108,9 +109,11 @@ namespace Kapta.Ejercicios
 
         private async void Nuevo_Clicked(object sender, EventArgs e)
         {
-            MainViewModel.GetInstance().Categoriess = new CategoriesViewModelUser(deportistaa);
+            await Navigation.PushAsync(new SelectTypeExercise(deportistaa));
+            //COMENTARIOOOO
+            // ////MainViewModel.GetInstance().Categoriess = new CategoriesViewModelUser(deportistaa);
             //Application.Current.MainPage = new NavigationPage(new LoginPage());
-            await App.Navigator.PushAsync(new CategoriesPageUser());
+            /////  await App.Navigator.PushAsync(new CategoriesPageUser());
             //await Navigation.PushAsync(new CategoriesPageUser(deportistaa));
             //await Navigation.PushAsync(new AddExercise(deportistaa));
         }

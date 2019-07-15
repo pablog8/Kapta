@@ -38,7 +38,7 @@ namespace Kapta.Backend.Models
         [Compare("NewPassword", ErrorMessage = "La contraseña nueva y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
     }
-
+    
     public class ChangePasswordViewModel
     {
         [Required]

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kapta.Ejercicios.EditExercisePersonal">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10" Spacing="10">
+                <Label Text="Nombre del Ejercicio" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"></Label>
+                <Editor x:Name="nombreejercicioEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                        />
+                <Label Text="Descripción" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"></Label>
+                <Editor x:Name="descripcionEntry" TextColor="Black" FontSize="Small" HorizontalOptions="Center"
+                        />
+                <Label Text="Comentario personal" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Editor x:Name="comentarioEntry"
+                        />
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        x:Name="añadirButton"
+                        Text="Añadir ejercicio a la lista"
+                        HorizontalOptions="FillAndExpand"                   
+                        HeightRequest="46"
+                        BackgroundColor="Navy"
+                        TextColor="White">
+                    </Button>
+
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
