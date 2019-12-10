@@ -6,11 +6,11 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="Lugar " FontAttributes="Bold" FontSize="Medium"></Label>
-            <Label x:Name="pickerlugar" FontSize="Small"></Label>
-            <Label Text="Tipo " FontAttributes="Bold" FontSize="Medium"></Label>
-            <Label x:Name="pickertipo" FontSize="Small"></Label>
-            <Label Text="Número de Lesiones" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Label Text="Lugar " HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Label x:Name="pickerlugar" HorizontalOptions="Center" TextColor="Black" FontSize="Small"></Label>
+            <Label Text="Tipo " HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Label x:Name="pickertipo" HorizontalOptions="Center" TextColor="Black" FontSize="Small"></Label>
+            <Label Text="Número de Lesiones" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"></Label>
             <Entry x:Name="numeroLesionesEntry"
                   Placeholder="Nº lesiones"
                    Keyboard="Numeric" ></Entry>

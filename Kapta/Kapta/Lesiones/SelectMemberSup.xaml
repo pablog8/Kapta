@@ -13,7 +13,7 @@
             <Entry x:Name="numeroLesionesEntry"
                   Placeholder="Nº lesiones"
                    Keyboard="Numeric" ></Entry>
-            <Button x:Name="Agregarlesion" Text="agregarlesion" BackgroundColor="SeaGreen" TextColor="White"></Button>
+            <Button x:Name="Agregarlesion" Text="agregar lesion" BackgroundColor="SeaGreen" TextColor="White"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

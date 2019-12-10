@@ -290,6 +290,7 @@
     <Content Include="Views\Videos\Create.cshtml" />
     <Content Include="Views\Videos\Edit.cshtml" />
     <Content Include="Views\Videos\Delete.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

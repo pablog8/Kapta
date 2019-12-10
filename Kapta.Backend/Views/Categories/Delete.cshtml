@@ -1,4 +1,4 @@
-﻿@model Kapta.Common.Models.Exercise
+﻿@model Kapta.Common.Models.Category
 
 @{
     ViewBag.Title = "Delete";
@@ -8,17 +8,9 @@
 
 <h3>¿Estás seguro de eliminar esto?</h3>
 <div>
-    <h4>Ejercicio</h4>
+    <h4>Categoría</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
@@ -35,17 +27,10 @@
             @Html.DisplayFor(model => model.ImagePath)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublishOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PublishOn)
-        </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

@@ -48,11 +48,13 @@
                                     
                                          Text="{Binding NombreCompleto}">
                                     </Label>
-                                    <Label
+                                    <!--
+                                     <Label
                                     
                                          Text="{Binding FechaNacimientoEditada}">
 
-                                    </Label>
+                                    </Label>-->
+                                   
 
                                 </StackLayout>
 
